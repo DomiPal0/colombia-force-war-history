@@ -36,19 +36,52 @@ export function WarCardList({
         className="flex flex-wrap items-center justify-between gap-2 pb-3 text-xs font-medium text-slate-400 tabular-nums"
         aria-live="polite"
       >
-        <span>
-          Mostrando {wars.length} de {totalMatched} guerras filtradas (archivo total: {totalArchive})
-        </span>
+        <div className="flex flex-wrap items-center gap-2">
+          <span>
+            Mostrando {wars.length} de {totalMatched} guerras filtradas (archivo total: {totalArchive})
+          </span>
 
-        {selectedPeriod && (
-          <button
-            type="button"
-            onClick={onClearPeriod}
-            className="inline-flex items-center gap-1 rounded-md border-2 border-[#c6f36b]/60 bg-[#c6f36b]/15 px-2 py-0.5 text-[11px] font-semibold text-[#d9f99d] transition hover:bg-[#c6f36b]/25"
+          {selectedPeriod && (
+            <button
+              type="button"
+              onClick={onClearPeriod}
+              className="inline-flex items-center gap-1 rounded-md border-2 border-[#c6f36b]/60 bg-[#c6f36b]/15 px-2 py-0.5 text-[11px] font-semibold text-[#d9f99d] transition hover:bg-[#c6f36b]/25"
+            >
+              <span>Período: {formatPeriodLabel(selectedPeriod).full}</span>
+              <X className="h-3 w-3" />
+            </button>
+          )}
+        </div>
+
+        {totalMatched > 0 && totalPages > 1 && (
+          <nav
+            aria-label="Paginación superior"
+            className="flex items-center gap-2"
           >
-            <span>Período: {formatPeriodLabel(selectedPeriod).full}</span>
-            <X className="h-3 w-3" />
-          </button>
+            <button
+              type="button"
+              onClick={() => onPageChange(Math.max(1, page - 1))}
+              disabled={page <= 1}
+              className="inline-flex items-center gap-1 rounded-lg border border-[#3b5573] bg-[#101c2d] px-2.5 py-1 text-[11px] font-semibold text-slate-100 transition hover:border-[#c6f36b] disabled:cursor-not-allowed disabled:opacity-45"
+            >
+              <ChevronLeft className="h-3.5 w-3.5" />
+              <span>Anterior</span>
+            </button>
+
+            <span className="font-mono text-[11px] font-semibold text-slate-300">
+              Pág. {page}/{totalPages}
+            </span>
+
+            <button
+              type="button"
+              onClick={() => onPageChange(Math.min(totalPages, page + 1))}
+              disabled={page >= totalPages}
+              className="inline-flex items-center gap-1 rounded-lg border border-[#c6f36b] bg-[#c6f36b] px-2.5 py-1 text-[11px] font-bold text-[#111c08] transition hover:bg-[#d9f99d] disabled:cursor-not-allowed disabled:border-[#3b5573] disabled:bg-[#101c2d] disabled:text-slate-500"
+            >
+              <span>Siguiente</span>
+              <ChevronRight className="h-3.5 w-3.5" />
+            </button>
+          </nav>
         )}
       </div>
 
