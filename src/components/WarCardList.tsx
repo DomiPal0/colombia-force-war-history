@@ -186,7 +186,7 @@ export function WarCardList({
                   </div>
 
                   <div
-                    className={`mt-2 font-display text-sm font-extrabold uppercase tracking-wide tabular-nums sm:text-base ${
+                    className={`mt-2 font-display text-lg font-extrabold uppercase tracking-wide tabular-nums sm:text-base ${
                       resultTone === 'win'
                         ? 'text-emerald-400'
                         : resultTone === 'loss'
