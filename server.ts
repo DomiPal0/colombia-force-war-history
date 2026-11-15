@@ -115,39 +115,53 @@ function parseDomiStatsHtml(html: string): WarEntry[] {
 
 function parseAllianceHtml(html: string): AllianceOverview {
   const $ = cheerio.load(html);
-  const sub = $('.alliance-info-subcontainer').first();
-  const findFirst = (selector: string) =>
-    sub.length ? sub.find(selector).first() : $(selector).first();
 
   let glory = '—';
-  const gloryImg = findFirst('.glory-row .glory-value img[alt="Glory"], .glory-value img[alt="Glory"], img[alt="Glory"]');
-  if (gloryImg.length && gloryImg.next('span').length) {
-    glory = normalizeText(gloryImg.next('span').text());
-  }
+  const gloryCandidates = $(
+    '[data-tooltip="Glory"] .glory-value, .alliance-info-subcontainer .glory-row .glory-value, .glory-row .glory-value, .glory-value',
+  );
+  gloryCandidates.each((_, el) => {
+    if (glory !== '—') return;
+    const node = $(el);
+    const imgSpan = node.find('img[alt="Glory"]').first().next('span');
+    const val = normalizeText(imgSpan.length ? imgSpan.text() : node.text(), '');
+    if (/\d/.test(val)) {
+      glory = val;
+    }
+  });
   if (glory === '—') {
-    glory = normalizeText(findFirst('.glory-row .glory-value, .glory-value').text());
+    $('img[alt="Glory"]').each((_, el) => {
+      if (glory !== '—') return;
+      const nextSpan = $(el).next('span');
+      if (nextSpan.length) {
+        const val = normalizeText(nextSpan.text(), '');
+        if (/\d/.test(val)) {
+          glory = val;
+        }
+      }
+    });
   }
 
   let rank = '—';
-  const rankNode = findFirst('.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box');
-  const fallbackRankNode = rankNode.length ? rankNode : $('.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box').first();
-  if (fallbackRankNode.length) {
-    const compactRank = fallbackRankNode.text().replace(/\s+/g, '').trim();
+  const rankNode = $(
+    '.alliance-info-subcontainer .rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box-with-diff .rank-box, .rank-box',
+  ).first();
+  if (rankNode.length) {
+    const compactRank = rankNode.text().replace(/\s+/g, '').trim();
     if (compactRank) {
       rank = normalizeRank(compactRank.startsWith('#') ? compactRank : `#${compactRank}`);
     }
   }
 
   let division = '—';
-  const divNode = findFirst('.division-rank');
-  const fallbackDivNode = divNode.length ? divNode : $('.division-rank').first();
-  if (fallbackDivNode.length) {
-    const spans = fallbackDivNode
+  const divNode = $('.alliance-info-subcontainer .division-rank, .division-rank').first();
+  if (divNode.length) {
+    const spans = divNode
       .children('span')
       .map((_, el) => normalizeText($(el).text(), ''))
       .get()
       .filter(Boolean);
-    division = spans.length ? spans.join(' ') : normalizeText(fallbackDivNode.text());
+    division = spans.length ? spans.join(' ') : normalizeText(divNode.text());
   }
 
   if (glory === '—' && rank === '—' && division === '—') {
