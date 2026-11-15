@@ -17,9 +17,16 @@ export interface WarEntry {
   notes: string;
 }
 
+export interface AllianceOverview {
+  glory: string;
+  rank: string;
+  division: string;
+}
+
 export interface WarsSnapshot {
   updated_at: string;
   refresh_pages: number;
+  alliance?: AllianceOverview;
   wars: WarEntry[];
 }
 
