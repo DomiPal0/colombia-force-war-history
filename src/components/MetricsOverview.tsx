@@ -1,19 +1,29 @@
 import { Flame, ShieldCheck, Swords, Trophy } from 'lucide-react';
-import type { WarEntry } from '../types/war';
+import type { AllianceOverview, WarEntry } from '../types/war';
 
 interface MetricsOverviewProps {
   latestWar?: WarEntry;
+  alliance?: AllianceOverview;
   totalWars: number;
   wins: number;
   losses: number;
 }
 
-export function MetricsOverview({ latestWar, totalWars, wins, losses }: MetricsOverviewProps) {
-  const recentGlory = latestWar?.left.glory || '—';
-  const recentDivision =
-    latestWar?.left.division && latestWar.left.division !== '—'
-      ? latestWar.left.division
-      : null;
+export function MetricsOverview({
+  latestWar,
+  alliance,
+  totalWars,
+  wins,
+  losses,
+}: MetricsOverviewProps) {
+  const recentGlory =
+    (alliance?.glory && alliance.glory !== '—' ? alliance.glory : latestWar?.left.glory) ||
+    '—';
+  const rawDivision =
+    alliance?.division && alliance.division !== '—'
+      ? alliance.division
+      : latestWar?.left.division;
+  const recentDivision = rawDivision && rawDivision !== '—' ? rawDivision : null;
   const winRate = wins + losses > 0 ? Math.round((wins / (wins + losses)) * 100) : 0;
 
   return (

@@ -1,13 +1,13 @@
-import { Shield } from 'lucide-react';
-import type { WarEntry } from '../types/war';
+import type { AllianceOverview, WarEntry } from '../types/war';
 import { normalizeRankDisplay } from '../utils/warUtils';
 
 interface AllianceHeaderProps {
   latestWar?: WarEntry;
+  alliance?: AllianceOverview;
 }
 
-export function AllianceHeader({ latestWar }: AllianceHeaderProps) {
-  const rankNumber = normalizeRankDisplay(latestWar?.left.rank);
+export function AllianceHeader({ latestWar, alliance }: AllianceHeaderProps) {
+  const rankNumber = normalizeRankDisplay(alliance?.rank ?? latestWar?.left.rank);
 
   return (
     <header className="space-y-6">
@@ -28,9 +28,11 @@ export function AllianceHeader({ latestWar }: AllianceHeaderProps) {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex flex-wrap items-end gap-4 sm:gap-7">
           <div className="flex items-center gap-3.5">
-            <div className="hidden h-12 w-12 shrink-0 place-items-center rounded-xl border-2 border-[#3b5573] bg-[#121f31] text-[#c6f36b] sm:grid">
-              <Shield className="h-6 w-6" />
-            </div>
+            <img
+              src="./assets/escudo-colfor.png"
+              alt="Escudo COLOMBIA FORCE"
+              className="h-12 w-12 shrink-0 object-contain"
+            />
             <h1 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
               COLOMBIA FORCE
             </h1>
@@ -42,7 +44,7 @@ export function AllianceHeader({ latestWar }: AllianceHeaderProps) {
             </span>
             <div
               className="inline-flex min-w-[84px] items-center justify-center gap-1 rounded-lg border-2 border-[#47668a] bg-[#121f31] px-3 py-1.5 font-mono text-lg font-bold text-[#facc15] tabular-nums shadow-sm sm:min-w-[92px] sm:px-3.5 sm:text-xl"
-              title="Ranking actual de la alianza según la última guerra registrada"
+              title="Ranking actual de la alianza en DomiStats"
             >
               <span className="text-slate-400">#</span>
               <span>{rankNumber}</span>
