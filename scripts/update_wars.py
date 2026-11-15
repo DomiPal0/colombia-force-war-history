@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 URL = "https://domistats.com/alliance_wars/68105"
+ALLIANCE_URL = "https://domistats.com/alliance/68105"
 SOURCE_PAGE_COUNT = 1
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; scheduled public-page reader)"
@@ -106,6 +107,67 @@ def fetch_wars() -> list[dict]:
     return collected
 
 
+def parse_alliance_info(html: str) -> dict:
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(html, "html.parser")
+    container = soup.select_one(".alliance-info-subcontainer") or soup
+
+    glory = "—"
+    glory_img = container.select_one(
+        '.glory-row .glory-value img[alt="Glory"], .glory-value img[alt="Glory"], img[alt="Glory"]'
+    )
+    if glory_img:
+        next_span = glory_img.find_next_sibling("span")
+        if next_span:
+            glory = next_span.get_text(" ", strip=True) or "—"
+    if glory == "—":
+        glory_val = container.select_one(".glory-row .glory-value, .glory-value")
+        if glory_val:
+            glory = glory_val.get_text(" ", strip=True) or "—"
+
+    rank = "—"
+    rank_node = (
+        container.select_one(
+            '.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box'
+        )
+        or soup.select_one('.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box')
+    )
+    if rank_node:
+        raw_rank = re.sub(r"\s+", "", rank_node.get_text("", strip=True))
+        if raw_rank:
+            rank = normalize_rank(raw_rank if raw_rank.startswith("#") else f"#{raw_rank}")
+
+    division = "—"
+    division_node = container.select_one(".division-rank") or soup.select_one(".division-rank")
+    if division_node:
+        spans = [
+            span.get_text(" ", strip=True)
+            for span in division_node.find_all("span", recursive=False)
+            if span.get_text(" ", strip=True)
+        ]
+        division = " ".join(spans) if spans else (division_node.get_text(" ", strip=True) or "—")
+
+    if glory == "—" and rank == "—" and division == "—":
+        raise RuntimeError("Could not parse alliance overview fields from DomiStats.")
+
+    return {
+        "glory": glory,
+        "rank": rank,
+        "division": division,
+    }
+
+
+def fetch_alliance_info() -> dict:
+    import requests
+
+    session = requests.Session()
+    session.headers.update(HEADERS)
+    response = session.get(ALLIANCE_URL, timeout=45)
+    response.raise_for_status()
+    return parse_alliance_info(response.text)
+
+
 def war_key(war: dict) -> tuple[str, str, str]:
     return (
         war.get("date", "").strip(),
@@ -157,8 +219,11 @@ def merge_history(recent_wars: list[dict], saved_wars: list[dict]) -> list[dict]
     return merged
 
 
-def write_snapshot(wars: list[dict], updated_at: str) -> None:
-    data = {"updated_at": updated_at, "refresh_pages": SOURCE_PAGE_COUNT, "wars": wars}
+def write_snapshot(wars: list[dict], updated_at: str, alliance_info: dict | None = None) -> None:
+    data: dict = {"updated_at": updated_at, "refresh_pages": SOURCE_PAGE_COUNT}
+    if alliance_info:
+        data["alliance"] = alliance_info
+    data["wars"] = wars
     data_dir = ROOT / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
     (data_dir / "wars.json").write_text(
@@ -177,15 +242,28 @@ def main() -> None:
     args = parser.parse_args()
 
     existing = json.loads((ROOT / "data" / "wars.json").read_text(encoding="utf-8"))
+    alliance_info = existing.get("alliance")
     if args.from_cache:
         wars = merge_history([], existing["wars"])
         updated_at = existing["updated_at"]
     else:
         recent_wars = fetch_wars()
         wars = merge_history(recent_wars, existing["wars"])
+        try:
+            fetched_alliance = fetch_alliance_info()
+            if alliance_info:
+                alliance_info = {
+                    "glory": fetched_alliance["glory"] if fetched_alliance.get("glory") not in (None, "", "—") else alliance_info.get("glory", "—"),
+                    "rank": fetched_alliance["rank"] if fetched_alliance.get("rank") not in (None, "", "—") else alliance_info.get("rank", "—"),
+                    "division": fetched_alliance["division"] if fetched_alliance.get("division") not in (None, "", "—") else alliance_info.get("division", "—"),
+                }
+            else:
+                alliance_info = fetched_alliance
+        except Exception as exc:
+            print(f"Warning: could not refresh alliance overview from {ALLIANCE_URL}: {exc}")
         updated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
-    write_snapshot(wars, updated_at)
+    write_snapshot(wars, updated_at, alliance_info)
     print(f"Updated data/wars.json with {len(wars)} wars; timestamp: {updated_at}")
 
 
