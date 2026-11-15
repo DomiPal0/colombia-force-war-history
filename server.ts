@@ -3,12 +3,13 @@ import * as cheerio from 'cheerio';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { AllianceSide, WarEntry, WarsSnapshot } from './src/types/war.ts';
+import type { AllianceOverview, AllianceSide, WarEntry, WarsSnapshot } from './src/types/war.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_FILE = path.join(__dirname, 'data', 'wars.json');
 const DOMISTATS_URL = 'https://domistats.com/alliance_wars/68105?page=1';
+const DOMISTATS_ALLIANCE_URL = 'https://domistats.com/alliance/68105';
 const PORT = Number(process.env.PORT) || 3000;
 
 function normalizeRank(raw: string | undefined): string {
@@ -112,6 +113,50 @@ function parseDomiStatsHtml(html: string): WarEntry[] {
   return parsed;
 }
 
+function parseAllianceHtml(html: string): AllianceOverview {
+  const $ = cheerio.load(html);
+  const sub = $('.alliance-info-subcontainer').first();
+  const findFirst = (selector: string) =>
+    sub.length ? sub.find(selector).first() : $(selector).first();
+
+  let glory = '—';
+  const gloryImg = findFirst('.glory-row .glory-value img[alt="Glory"], .glory-value img[alt="Glory"], img[alt="Glory"]');
+  if (gloryImg.length && gloryImg.next('span').length) {
+    glory = normalizeText(gloryImg.next('span').text());
+  }
+  if (glory === '—') {
+    glory = normalizeText(findFirst('.glory-row .glory-value, .glory-value').text());
+  }
+
+  let rank = '—';
+  const rankNode = findFirst('.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box');
+  const fallbackRankNode = rankNode.length ? rankNode : $('.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box').first();
+  if (fallbackRankNode.length) {
+    const compactRank = fallbackRankNode.text().replace(/\s+/g, '').trim();
+    if (compactRank) {
+      rank = normalizeRank(compactRank.startsWith('#') ? compactRank : `#${compactRank}`);
+    }
+  }
+
+  let division = '—';
+  const divNode = findFirst('.division-rank');
+  const fallbackDivNode = divNode.length ? divNode : $('.division-rank').first();
+  if (fallbackDivNode.length) {
+    const spans = fallbackDivNode
+      .children('span')
+      .map((_, el) => normalizeText($(el).text(), ''))
+      .get()
+      .filter(Boolean);
+    division = spans.length ? spans.join(' ') : normalizeText(fallbackDivNode.text());
+  }
+
+  if (glory === '—' && rank === '—' && division === '—') {
+    throw new Error('No se pudieron leer los datos actuales de la alianza en DomiStats.');
+  }
+
+  return { glory, rank, division };
+}
+
 function mergeHistory(recentWars: WarEntry[], savedWars: WarEntry[]): { wars: WarEntry[]; added: number; updated: number } {
   const savedByKey = new Map<string, WarEntry>();
   for (const war of savedWars) {
@@ -195,9 +240,36 @@ async function refreshFromDomiStats(): Promise<WarsSnapshot & { added: number; u
   const recentWars = parseDomiStatsHtml(html);
   const current = await readSnapshot();
   const { wars, added, updated } = mergeHistory(recentWars, current.wars);
+
+  let alliance: AllianceOverview | undefined = current.alliance;
+  try {
+    const allianceResp = await fetch(DOMISTATS_ALLIANCE_URL, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; live-sync)',
+        Accept: 'text/html,application/xhtml+xml',
+      },
+      signal: AbortSignal.timeout(20000),
+    });
+    if (allianceResp.ok) {
+      const allianceHtml = await allianceResp.text();
+      const fetched = parseAllianceHtml(allianceHtml);
+      alliance = {
+        glory: !missingValue(fetched.glory) ? fetched.glory : current.alliance?.glory || '—',
+        rank: !missingValue(fetched.rank) ? fetched.rank : current.alliance?.rank || '—',
+        division: !missingValue(fetched.division) ? fetched.division : current.alliance?.division || '—',
+      };
+    }
+  } catch (err) {
+    console.warn(
+      '[Alliance Sync] Se conservó el resumen previo de la alianza:',
+      err instanceof Error ? err.message : err,
+    );
+  }
+
   const updatedSnapshot: WarsSnapshot = {
     updated_at: formatUtcTimestamp(new Date()),
     refresh_pages: 1,
+    ...(alliance ? { alliance } : {}),
     wars,
   };
 
