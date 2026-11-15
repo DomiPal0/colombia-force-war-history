@@ -5,7 +5,7 @@ import { WarCardList } from './components/WarCardList';
 import { WarFilters } from './components/WarFilters';
 import { WinLossChart } from './components/WinLossChart';
 import fallbackSnapshot from '../data/wars.json';
-import type { OutcomeFilter, WarEntry, WarsSnapshot } from './types/war';
+import type { AllianceOverview, OutcomeFilter, WarEntry, WarsSnapshot } from './types/war';
 import { computeSummaryStats, matchesWarFilters } from './utils/warUtils';
 
 const PAGE_SIZE = 25;
@@ -70,6 +70,7 @@ export default function App() {
   const initialNav = useMemo(() => readNavigationStateFromUrl(), []);
 
   const [wars, setWars] = useState<WarEntry[]>([]);
+  const [alliance, setAlliance] = useState<AllianceOverview | undefined>(undefined);
   const [updatedAt, setUpdatedAt] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -161,6 +162,7 @@ export default function App() {
       if (response.ok && contentType.includes('application/json')) {
         const data = (await response.json()) as WarsSnapshot;
         setWars(Array.isArray(data.wars) ? data.wars : []);
+        setAlliance(data.alliance);
         setUpdatedAt(data.updated_at || '');
         return;
       }
@@ -169,6 +171,7 @@ export default function App() {
       const bundled = fallbackSnapshot as WarsSnapshot;
       if (Array.isArray(bundled.wars) && bundled.wars.length > 0) {
         setWars(bundled.wars);
+        setAlliance(bundled.alliance);
         setUpdatedAt(bundled.updated_at || '');
       } else {
         setLoadError('No se pudo cargar el archivo de guerras.');
@@ -249,7 +252,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_78%_-10%,rgba(33,55,84,0.48)_0%,transparent_48%)] bg-[#0a111d]">
       <main className="mx-auto max-w-[1320px] px-4 py-7 sm:px-7 sm:py-9">
-        <AllianceHeader latestWar={latestWar} />
+        <AllianceHeader latestWar={latestWar} alliance={alliance} />
 
         {isLoading ? (
           <div className="mt-6 space-y-4">
@@ -276,6 +279,7 @@ export default function App() {
           <>
             <MetricsOverview
               latestWar={latestWar}
+              alliance={alliance}
               totalWars={summaryStats.total}
               wins={summaryStats.wins}
               losses={summaryStats.losses}
