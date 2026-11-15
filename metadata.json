@@ -1,0 +1,6 @@
+{
+  "name": "COLOMBIA FORCE · Historial de Guerras",
+  "description": "Archivo de alianza e historial de guerras de COLOMBIA FORCE con estadísticas, gráfico interactivo de victorias y derrotas y actualización diaria desde DomiStats.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

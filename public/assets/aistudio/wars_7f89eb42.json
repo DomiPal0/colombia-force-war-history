@@ -1,0 +1,5771 @@
+{
+  "updated_at": "2026-11-14 22:52 UTC",
+  "refresh_pages": 1,
+  "wars": [
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Viking Guards",
+      "date": "2026/11/13",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 100",
+        "glory": "21,211",
+        "division": "Triumphant #100"
+      },
+      "right": {
+        "name": "Viking Guards",
+        "rank": "# 230",
+        "glory": "18,109",
+        "division": "Iconic #103"
+      },
+      "result": "150",
+      "stars": [
+        "75",
+        "68"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs HAI ROMANIA",
+      "date": "2026/11/11",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 104",
+        "glory": "21,061",
+        "division": "Triumphant #104"
+      },
+      "right": {
+        "name": "HAI ROMANIA",
+        "rank": "# 228",
+        "glory": "18,118",
+        "division": "Iconic #101"
+      },
+      "result": "154",
+      "stars": [
+        "75",
+        "54"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Open to ESH",
+      "date": "2026/11/09",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 90",
+        "glory": "20,907",
+        "division": "Triumphant #90"
+      },
+      "right": {
+        "name": "Open to ESH",
+        "rank": "# 180",
+        "glory": "19,428",
+        "division": "Iconic #51"
+      },
+      "result": "-254",
+      "stars": [
+        "63",
+        "75"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs ARMADA IBÉRICA",
+      "date": "2026/11/07",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 95",
+        "glory": "21,161",
+        "division": "Triumphant #95"
+      },
+      "right": {
+        "name": "ARMADA IBÉRICA",
+        "rank": "# 197",
+        "glory": "18,391",
+        "division": "Iconic #68"
+      },
+      "result": "159",
+      "stars": [
+        "75",
+        "64"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs F8tal",
+      "date": "2026/11/05",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 83",
+        "glory": "21,002",
+        "division": "Triumphant #94"
+      },
+      "right": {
+        "name": "F8tal",
+        "rank": "# 106",
+        "glory": "21,061",
+        "division": "Triumphant #89"
+      },
+      "result": "-179",
+      "stars": [
+        "61",
+        "75"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 1st Poland",
+      "date": "2026/11/03",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 92",
+        "glory": "21,181",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "1st Poland",
+        "rank": "# 120",
+        "glory": "20,198",
+        "division": "Triumphant"
+      },
+      "result": "231",
+      "stars": [
+        "69",
+        "64"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Valhalla Exiles",
+      "date": "2026/10/31",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 82",
+        "glory": "20,950",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "Valhalla Exiles",
+        "rank": "# 72",
+        "glory": "21,611",
+        "division": "Triumphant"
+      },
+      "result": "-156",
+      "stars": [
+        "35",
+        "100"
+      ],
+      "size": "20 v 20",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs LaHorDa",
+      "date": "2026/10/29",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 58",
+        "glory": "21,106",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "LaHorDa",
+        "rank": "# 195",
+        "glory": "18,323",
+        "division": "Iconic"
+      },
+      "result": "-282",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "size": "15 v 15",
+      "notes": "Time War"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 1st Poland",
+      "date": "2026/10/27",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 65",
+        "glory": "21,388",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "1st Poland",
+        "rank": "# 131",
+        "glory": "19,989",
+        "division": "Iconic"
+      },
+      "result": "211",
+      "stars": [
+        "70",
+        "57"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs ほのぼのうさぴょん",
+      "date": "2026/10/25",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 72",
+        "glory": "21,177",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "ほのぼのうさぴょん",
+        "rank": "# 307",
+        "glory": "16,530",
+        "division": "Iconic"
+      },
+      "result": "122",
+      "stars": [
+        "73",
+        "61"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs EasyPeasy",
+      "date": "2026/10/23",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 56",
+        "glory": "21,055",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "EasyPeasy",
+        "rank": "# 5",
+        "glory": "22,708",
+        "division": "Triumphant"
+      },
+      "result": "-106",
+      "stars": [
+        "28",
+        "75"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 1st Poland",
+      "date": "2026/10/21",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 35",
+        "glory": "21,161",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "1st Poland",
+        "rank": "# 134",
+        "glory": "20,381",
+        "division": "Iconic"
+      },
+      "result": "-218",
+      "stars": [
+        "62",
+        "73"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Portugal Elite",
+      "date": "2026/10/18",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 45",
+        "glory": "21,379",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "Portugal Elite",
+        "rank": "# 127",
+        "glory": "20,106",
+        "division": "Triumphant"
+      },
+      "result": "347",
+      "stars": [
+        "74",
+        "50"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Hunters BR",
+      "date": "2026/10/16",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 47",
+        "glory": "21,032",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "Hunters BR",
+        "rank": "# 270",
+        "glory": "16,644",
+        "division": "Iconic"
+      },
+      "result": "125",
+      "stars": [
+        "75",
+        "58"
+      ],
+      "size": "15 v 15",
+      "notes": "—"
+    },
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Angry Exiles",
+      "date": "2026/10/14",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "# 72",
+        "glory": "20,907",
+        "division": "Triumphant"
+      },
+      "right": {
+        "name": "Angry Exiles",
+        "rank": "# 102",
+        "glory": "20,241",
+        "division": "Triumphant"
+      },
+      "result": "247",
+      "stars": [
+        "75",
+        "64"
+      ],
+      "size": "20 v 20",
+      "notes": "—"
+    },
+    {
+      "date": "2026/10/12",
+      "left": {
+        "division": "Triumphant",
+        "glory": "20,660",
+        "name": "COLOMBIA FORCE",
+        "rank": "#25"
+      },
+      "notes": "—",
+      "result": "-186",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,582",
+        "name": "臺灣之光",
+        "rank": "#111"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "64",
+        "100"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/10/09",
+      "left": {
+        "division": "Triumphant",
+        "glory": "20,846",
+        "name": "COLOMBIA FORCE",
+        "rank": "#32"
+      },
+      "notes": "Close War",
+      "result": "266",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,551",
+        "name": "Angry Exiles",
+        "rank": "#8"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "74"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/10/07",
+      "left": {
+        "division": "Triumphant",
+        "glory": "20,580",
+        "name": "COLOMBIA FORCE",
+        "rank": "#109"
+      },
+      "notes": "—",
+      "result": "260",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,160",
+        "name": "Cамородки NEW",
+        "rank": "#90"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "66"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/10/03",
+      "left": {
+        "division": "Iconic",
+        "glory": "20,431",
+        "name": "COLOMBIA FORCE",
+        "rank": "#146"
+      },
+      "notes": "—",
+      "result": "284",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,484",
+        "name": "DragonTürk",
+        "rank": "#241"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "20"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/10/01",
+      "left": {
+        "division": "Iconic",
+        "glory": "20,147",
+        "name": "COLOMBIA FORCE",
+        "rank": "#152"
+      },
+      "notes": "—",
+      "result": "165",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,548",
+        "name": "東京あまのじゃく団結団",
+        "rank": "#307"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "49"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/09/29",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,982",
+        "name": "COLOMBIA FORCE",
+        "rank": "#161"
+      },
+      "notes": "Close War",
+      "result": "264",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,656",
+        "name": "ALMA SICARIA",
+        "rank": "#155"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "71"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/09/27",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,718",
+        "name": "COLOMBIA FORCE",
+        "rank": "#148"
+      },
+      "notes": "Close War",
+      "result": "-199",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,373",
+        "name": "1st Poland",
+        "rank": "#190"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "69",
+        "71"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/09/25",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,917",
+        "name": "COLOMBIA FORCE",
+        "rank": "#149"
+      },
+      "notes": "—",
+      "result": "115",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,754",
+        "name": "Сила Сибири",
+        "rank": "#921"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "32"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/09/23",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,802",
+        "name": "COLOMBIA FORCE",
+        "rank": "#140"
+      },
+      "notes": "—",
+      "result": "-189",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,659",
+        "name": "ALMA SICARIA",
+        "rank": "#161"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "62",
+        "74"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/09/20",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,991",
+        "name": "COLOMBIA FORCE",
+        "rank": "#147"
+      },
+      "notes": "Close War",
+      "result": "281",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,001",
+        "name": "F8tal Bandits",
+        "rank": "#126"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "72"
+      ],
+      "page": 1
+    },
+    {
+      "date": "2026/09/18",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,710",
+        "name": "COLOMBIA FORCE",
+        "rank": "#137"
+      },
+      "notes": "—",
+      "result": "-120",
+      "right": {
+        "division": "Triumphant",
+        "glory": "21,058",
+        "name": "☆Txino&Guidus☆",
+        "rank": "#110"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "63",
+        "74"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/16",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,830",
+        "name": "COLOMBIA FORCE",
+        "rank": "#152"
+      },
+      "notes": "—",
+      "result": "326",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,340",
+        "name": "The Aesir",
+        "rank": "#206"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "69"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/14",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,504",
+        "name": "COLOMBIA FORCE",
+        "rank": "#158"
+      },
+      "notes": "—",
+      "result": "197",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,765",
+        "name": "7,641 PH Island",
+        "rank": "#248"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "92"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/12",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,307",
+        "name": "COLOMBIA FORCE",
+        "rank": "#160"
+      },
+      "notes": "—",
+      "result": "224",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,185",
+        "name": "Men with Baaws",
+        "rank": "#209"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "55"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/10",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,083",
+        "name": "COLOMBIA FORCE",
+        "rank": "#147"
+      },
+      "notes": "—",
+      "result": "-129",
+      "right": {
+        "division": "Iconic",
+        "glory": "20,259",
+        "name": "HORDA RESISTE",
+        "rank": "#124"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "55",
+        "75"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/07",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,212",
+        "name": "COLOMBIA FORCE",
+        "rank": "#146"
+      },
+      "notes": "—",
+      "result": "-49",
+      "right": {
+        "division": "Triumphant",
+        "glory": "22,455",
+        "name": "S Việt Nam",
+        "rank": "#59"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "26",
+        "50"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/05",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,261",
+        "name": "COLOMBIA FORCE",
+        "rank": "#150"
+      },
+      "notes": "—",
+      "result": "201",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,619",
+        "name": "ARMADA IBÉRICA",
+        "rank": "#233"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "41"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/09/03",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,060",
+        "name": "COLOMBIA FORCE",
+        "rank": "#139"
+      },
+      "notes": "—",
+      "result": "-87",
+      "right": {
+        "division": "Triumphant",
+        "glory": "21,052",
+        "name": "INFRAMUNDO",
+        "rank": "#93"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "20",
+        "49"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/31",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,147",
+        "name": "COLOMBIA FORCE",
+        "rank": "#144"
+      },
+      "notes": "—",
+      "result": "166",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,603",
+        "name": "DNA",
+        "rank": "#322"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "67",
+        "63"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/29",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,981",
+        "name": "COLOMBIA FORCE",
+        "rank": "#140"
+      },
+      "notes": "—",
+      "result": "-21",
+      "right": {
+        "division": "Triumphant",
+        "glory": "23,771",
+        "name": "Momineen",
+        "rank": "#18"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "16",
+        "75"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/27",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,002",
+        "name": "COLOMBIA FORCE",
+        "rank": "#147"
+      },
+      "notes": "Close War",
+      "result": "238",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,166",
+        "name": "1st Poland",
+        "rank": "#173"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "70",
+        "67"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/25",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,764",
+        "name": "COLOMBIA FORCE",
+        "rank": "#138"
+      },
+      "notes": "—",
+      "result": "-31",
+      "right": {
+        "division": "Triumphant",
+        "glory": "22,864",
+        "name": "Гвардия",
+        "rank": "#31"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "60",
+        "74"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/23",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,795",
+        "name": "COLOMBIA FORCE",
+        "rank": "#143"
+      },
+      "notes": "—",
+      "result": "145",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,475",
+        "name": "KOREA HEARTS",
+        "rank": "#405"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "50"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/21",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,650",
+        "name": "COLOMBIA FORCE",
+        "rank": "#137"
+      },
+      "notes": "—",
+      "result": "-53",
+      "right": {
+        "division": "Triumphant",
+        "glory": "21,680",
+        "name": "MUNK",
+        "rank": "#60"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "33",
+        "75"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/19",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,703",
+        "name": "COLOMBIA FORCE",
+        "rank": "#148"
+      },
+      "notes": "—",
+      "result": "222",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,539",
+        "name": "Ares Brasil",
+        "rank": "#189"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "62"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/16",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,481",
+        "name": "COLOMBIA FORCE",
+        "rank": "#137"
+      },
+      "notes": "—",
+      "result": "-16",
+      "right": {
+        "division": "Triumphant",
+        "glory": "23,852",
+        "name": "Easy Peasy",
+        "rank": "#5"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "16",
+        "75"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/13",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,497",
+        "name": "COLOMBIA FORCE",
+        "rank": "#132"
+      },
+      "notes": "—",
+      "result": "-44",
+      "right": {
+        "division": "Triumphant",
+        "glory": "21,959",
+        "name": "Elegidøs",
+        "rank": "#45"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "19",
+        "50"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/10",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,541",
+        "name": "COLOMBIA FORCE",
+        "rank": "#128"
+      },
+      "notes": "—",
+      "result": "-83",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,642",
+        "name": "Кувалда",
+        "rank": "#90"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "28",
+        "50"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/08",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,624",
+        "name": "COLOMBIA FORCE",
+        "rank": "#132"
+      },
+      "notes": "Close War",
+      "result": "267",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,465",
+        "name": "Precious Ｆ",
+        "rank": "#262"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "43"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/06",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,357",
+        "name": "COLOMBIA FORCE",
+        "rank": "#135"
+      },
+      "notes": "—",
+      "result": "307",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,664",
+        "name": "Iron Robber$",
+        "rank": "#231"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "21"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/04",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,050",
+        "name": "COLOMBIA FORCE",
+        "rank": "#139"
+      },
+      "notes": "—",
+      "result": "152",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,999",
+        "name": "ほのぼのうさぴょん",
+        "rank": "#428"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "59",
+        "50"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/08/02",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,898",
+        "name": "COLOMBIA FORCE",
+        "rank": "#152"
+      },
+      "notes": "—",
+      "result": "360",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,837",
+        "name": "VN CLAN",
+        "rank": "#99"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "40"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/07/30",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,538",
+        "name": "COLOMBIA FORCE",
+        "rank": "#134"
+      },
+      "notes": "—",
+      "result": "-184",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,499",
+        "name": "ЛИГА",
+        "rank": "#166"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "41",
+        "47"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/07/28",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,722",
+        "name": "COLOMBIA FORCE",
+        "rank": "#141"
+      },
+      "notes": "—",
+      "result": "264",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,537",
+        "name": "붉은 악마",
+        "rank": "#356"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "33"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/07/25",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,458",
+        "name": "COLOMBIA FORCE",
+        "rank": "#156"
+      },
+      "notes": "—",
+      "result": "297",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,656",
+        "name": "Comando Élite",
+        "rank": "#320"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "25"
+      ],
+      "page": 2
+    },
+    {
+      "date": "2026/07/23",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,161",
+        "name": "COLOMBIA FORCE",
+        "rank": "#165"
+      },
+      "notes": "—",
+      "result": "251",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,571",
+        "name": "LaHorDa",
+        "rank": "#183"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "39",
+        "31"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/20",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,910",
+        "name": "COLOMBIA FORCE",
+        "rank": "#177"
+      },
+      "notes": "—",
+      "result": "224",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,771",
+        "name": "Comando Élite",
+        "rank": "#260"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "38"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/17",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,686",
+        "name": "COLOMBIA FORCE",
+        "rank": "#157"
+      },
+      "notes": "Close War",
+      "result": "-184",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,644",
+        "name": "ALMA SICARIA",
+        "rank": "#182"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "41",
+        "43"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/15",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,870",
+        "name": "COLOMBIA FORCE",
+        "rank": "#149"
+      },
+      "notes": "—",
+      "result": "-60",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,479",
+        "name": "Polish Warlords",
+        "rank": "#87"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "66",
+        "75"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/11",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,597",
+        "name": "COLOMBIA FORCE",
+        "rank": "#123"
+      },
+      "notes": "Close War",
+      "result": "232",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,640",
+        "name": "Elite Potatoes",
+        "rank": "#157"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "73"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/09",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,365",
+        "name": "COLOMBIA FORCE",
+        "rank": "#127"
+      },
+      "notes": "—",
+      "result": "148",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,185",
+        "name": "EMPIRE UNITED",
+        "rank": "#323"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "56"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/06",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,217",
+        "name": "COLOMBIA FORCE",
+        "rank": "#117"
+      },
+      "notes": "Close War",
+      "result": "-137",
+      "right": {
+        "division": "Iconic",
+        "glory": "20,234",
+        "name": "91 天宫",
+        "rank": "#105"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "75"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/04",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,354",
+        "name": "COLOMBIA FORCE",
+        "rank": "#108"
+      },
+      "notes": "Close War",
+      "result": "-199",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,995",
+        "name": "☆Txino&Guidus☆",
+        "rank": "#137"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "71",
+        "72"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/07/01",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,553",
+        "name": "COLOMBIA FORCE",
+        "rank": "#113"
+      },
+      "notes": "—",
+      "result": "260",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,317",
+        "name": "NaciónAmericana",
+        "rank": "#212"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "54"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/29",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,293",
+        "name": "COLOMBIA FORCE",
+        "rank": "#119"
+      },
+      "notes": "—",
+      "result": "224",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,157",
+        "name": "HAI ROMANIA",
+        "rank": "#155"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "68"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/26",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,069",
+        "name": "COLOMBIA FORCE",
+        "rank": "#119"
+      },
+      "notes": "Close War",
+      "result": "210",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,645",
+        "name": "ChillinBossHoss",
+        "rank": "#177"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "69",
+        "69"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/24",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,859",
+        "name": "COLOMBIA FORCE",
+        "rank": "#109"
+      },
+      "notes": "—",
+      "result": "-272",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,514",
+        "name": "LaHorDa",
+        "rank": "#294"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "50"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/21",
+      "left": {
+        "division": "Iconic",
+        "glory": "19,131",
+        "name": "COLOMBIA FORCE",
+        "rank": "#115"
+      },
+      "notes": "—",
+      "result": "227",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,059",
+        "name": "LA HORDA FURY",
+        "rank": "#143"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "49",
+        "29"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/19",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,904",
+        "name": "COLOMBIA FORCE",
+        "rank": "#111"
+      },
+      "notes": "—",
+      "result": "-53",
+      "right": {
+        "division": "Triumphant",
+        "glory": "21,979",
+        "name": "PERROS D GUERRA",
+        "rank": "#45"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "41",
+        "50"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/17",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,957",
+        "name": "COLOMBIA FORCE",
+        "rank": "#116"
+      },
+      "notes": "—",
+      "result": "221",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,761",
+        "name": "DragonTürk",
+        "rank": "#154"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "58"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/14",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,736",
+        "name": "COLOMBIA FORCE",
+        "rank": "#116"
+      },
+      "notes": "—",
+      "result": "176",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,466",
+        "name": "ПРОСТО ПОВЕЗЛО",
+        "rank": "#224"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "56"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/11",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,560",
+        "name": "COLOMBIA FORCE",
+        "rank": "#114"
+      },
+      "notes": "—",
+      "result": "107",
+      "right": {
+        "division": "Triumphant",
+        "glory": "22,509",
+        "name": "InvictusWizards",
+        "rank": "#37"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "56",
+        "75"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/07",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,453",
+        "name": "COLOMBIA FORCE",
+        "rank": "#108"
+      },
+      "notes": "—",
+      "result": "-141",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,393",
+        "name": "INFRAMUNDO",
+        "rank": "#97"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "48",
+        "74"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/05",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,594",
+        "name": "COLOMBIA FORCE",
+        "rank": "#105"
+      },
+      "notes": "—",
+      "result": "-149",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,386",
+        "name": "Japa募(^w^)",
+        "rank": "#91"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "69",
+        "74"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/06/03",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,743",
+        "name": "COLOMBIA FORCE",
+        "rank": "#94"
+      },
+      "notes": "Time War",
+      "result": "-45",
+      "right": {
+        "division": "Triumphant",
+        "glory": "22,126",
+        "name": "Elegidøs",
+        "rank": "#35"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/05/31",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,788",
+        "name": "COLOMBIA FORCE",
+        "rank": "#97"
+      },
+      "notes": "—",
+      "result": "354",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,581",
+        "name": "Carpe Diem",
+        "rank": "#126"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "40"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/05/28",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,434",
+        "name": "COLOMBIA FORCE",
+        "rank": "#105"
+      },
+      "notes": "—",
+      "result": "237",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,559",
+        "name": "Chef Wolves GER",
+        "rank": "#126"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "99",
+        "88"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/05/25",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,197",
+        "name": "COLOMBIA FORCE",
+        "rank": "#104"
+      },
+      "notes": "Close War",
+      "result": "147",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,946",
+        "name": "DNA",
+        "rank": "#311"
+      },
+      "size": "30 v 30",
+      "stars": [
+        "69",
+        "67"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/05/22",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,050",
+        "name": "COLOMBIA FORCE",
+        "rank": "#91"
+      },
+      "notes": "—",
+      "result": "-216",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,325",
+        "name": "폴라리스 Alpha",
+        "rank": "#154"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "69",
+        "75"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/05/20",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,266",
+        "name": "COLOMBIA FORCE",
+        "rank": "#95"
+      },
+      "notes": "—",
+      "result": "115",
+      "right": {
+        "division": "Established",
+        "glory": "1,001",
+        "name": "香港紅十字捐兵會",
+        "rank": "#5276"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "12"
+      ],
+      "page": 3
+    },
+    {
+      "date": "2026/05/17",
+      "left": {
+        "division": "Iconic",
+        "glory": "18,151",
+        "name": "COLOMBIA FORCE",
+        "rank": "#94"
+      },
+      "notes": "—",
+      "result": "267",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,998",
+        "name": "ENTERPRIZE",
+        "rank": "#213"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "43"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/15",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,884",
+        "name": "COLOMBIA FORCE",
+        "rank": "#100"
+      },
+      "notes": "—",
+      "result": "203",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,297",
+        "name": "Carpe Diem",
+        "rank": "#184"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "31"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/12",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,681",
+        "name": "COLOMBIA FORCE",
+        "rank": "#103"
+      },
+      "notes": "—",
+      "result": "230",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,667",
+        "name": "La Garde",
+        "rank": "#141"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "90",
+        "81"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/11",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,451",
+        "name": "COLOMBIA FORCE",
+        "rank": "#97"
+      },
+      "notes": "—",
+      "result": "-34",
+      "right": {
+        "division": "Triumphant",
+        "glory": "21,366",
+        "name": "Easy Troopers",
+        "rank": "#25"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "69",
+        "75"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/09",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,485",
+        "name": "COLOMBIA FORCE",
+        "rank": "#112"
+      },
+      "notes": "—",
+      "result": "468",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,365",
+        "name": "F8tal Dogs",
+        "rank": "#90"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "71",
+        "63"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/05",
+      "left": {
+        "division": "Iconic",
+        "glory": "17,017",
+        "name": "COLOMBIA FORCE",
+        "rank": "#143"
+      },
+      "notes": "—",
+      "result": "398",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,888",
+        "name": "Thunderdome",
+        "rank": "#16"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "70",
+        "64"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/03",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,619",
+        "name": "COLOMBIA FORCE",
+        "rank": "#150"
+      },
+      "notes": "—",
+      "result": "198",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,912",
+        "name": "AL SANCAK",
+        "rank": "#300"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "46"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/05/01",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,421",
+        "name": "COLOMBIA FORCE",
+        "rank": "#135"
+      },
+      "notes": "—",
+      "result": "-37",
+      "right": {
+        "division": "Iconic",
+        "glory": "20,170",
+        "name": "♥Cioby Soul♥",
+        "rank": "#61"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "64",
+        "72"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/28",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,458",
+        "name": "COLOMBIA FORCE",
+        "rank": "#138"
+      },
+      "notes": "—",
+      "result": "179",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,844",
+        "name": "Alliance - Ü30",
+        "rank": "#397"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "60"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/26",
+      "left": {
+        "division": "Iconic",
+        "glory": "16,279",
+        "name": "COLOMBIA FORCE",
+        "rank": "#166"
+      },
+      "notes": "—",
+      "result": "401",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,522",
+        "name": "German Alliance",
+        "rank": "#217"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "30"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/24",
+      "left": {
+        "division": "Iconic",
+        "glory": "15,878",
+        "name": "COLOMBIA FORCE",
+        "rank": "#208"
+      },
+      "notes": "—",
+      "result": "246",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,193",
+        "name": "Снежные барсы",
+        "rank": "#280"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "19"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/21",
+      "left": {
+        "division": "Iconic",
+        "glory": "15,632",
+        "name": "COLOMBIA FORCE",
+        "rank": "#278"
+      },
+      "notes": "—",
+      "result": "168",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,391",
+        "name": "Kungfu Fighters",
+        "rank": "#848"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "55"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/18",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,464",
+        "name": "COLOMBIA FORCE",
+        "rank": "#300"
+      },
+      "notes": "—",
+      "result": "144",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,311",
+        "name": "Comando Élite",
+        "rank": "#563"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "44"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/16",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,320",
+        "name": "COLOMBIA FORCE",
+        "rank": "#322"
+      },
+      "notes": "—",
+      "result": "229",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,464",
+        "name": "HAI ROMANIA",
+        "rank": "#272"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "61"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/14",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,091",
+        "name": "COLOMBIA FORCE",
+        "rank": "#308"
+      },
+      "notes": "—",
+      "result": "-69",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,152",
+        "name": "DragonTürk",
+        "rank": "#182"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "53",
+        "70"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/12",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,160",
+        "name": "COLOMBIA FORCE",
+        "rank": "#298"
+      },
+      "notes": "—",
+      "result": "-49",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,904",
+        "name": "ElitebrothesBR",
+        "rank": "#136"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "57",
+        "68"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/10",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,209",
+        "name": "COLOMBIA FORCE",
+        "rank": "#318"
+      },
+      "notes": "—",
+      "result": "264",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,320",
+        "name": "聽說很難過.Taiwan",
+        "rank": "#202"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "71",
+        "64"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/07",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,945",
+        "name": "COLOMBIA FORCE",
+        "rank": "#303"
+      },
+      "notes": "—",
+      "result": "-54",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,514",
+        "name": "Ares Brasil",
+        "rank": "#153"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "59",
+        "66"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/05",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,999",
+        "name": "COLOMBIA FORCE",
+        "rank": "#294"
+      },
+      "notes": "—",
+      "result": "-15",
+      "right": {
+        "division": "Triumphant",
+        "glory": "25,218",
+        "name": "ПАЛАЧИ",
+        "rank": "#6"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "28",
+        "50"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/04/03",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,014",
+        "name": "COLOMBIA FORCE",
+        "rank": "#289"
+      },
+      "notes": "—",
+      "result": "-18",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,648",
+        "name": "S Việt Nam",
+        "rank": "#65"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "32",
+        "50"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/03/31",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,032",
+        "name": "COLOMBIA FORCE",
+        "rank": "#274"
+      },
+      "notes": "—",
+      "result": "-89",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,515",
+        "name": "THAI SLASH®",
+        "rank": "#196"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "42",
+        "73"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/03/29",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,121",
+        "name": "COLOMBIA FORCE",
+        "rank": "#265"
+      },
+      "notes": "—",
+      "result": "-94",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,474",
+        "name": "DragonTurk",
+        "rank": "#193"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "65",
+        "70"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/03/27",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,215",
+        "name": "COLOMBIA FORCE",
+        "rank": "#285"
+      },
+      "notes": "—",
+      "result": "350",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,958",
+        "name": "Portugal Elite",
+        "rank": "#94"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "38"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/03/09",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,865",
+        "name": "COLOMBIA FORCE",
+        "rank": "#275"
+      },
+      "notes": "—",
+      "result": "-71",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,129",
+        "name": "Elite Potatoes",
+        "rank": "#153"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "39",
+        "50"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/03/07",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,936",
+        "name": "COLOMBIA FORCE",
+        "rank": "#262"
+      },
+      "notes": "Close War",
+      "result": "-65",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,422",
+        "name": "Darkside FR",
+        "rank": "#141"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "48",
+        "50"
+      ],
+      "page": 4
+    },
+    {
+      "date": "2026/03/05",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,001",
+        "name": "COLOMBIA FORCE",
+        "rank": "#282"
+      },
+      "notes": "Close War",
+      "result": "353",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,907",
+        "name": "Portugal Elite",
+        "rank": "#89"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "47"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/03/03",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,648",
+        "name": "COLOMBIA FORCE",
+        "rank": "#267"
+      },
+      "notes": "—",
+      "result": "-143",
+      "right": {
+        "division": "Prestigious",
+        "glory": "15,156",
+        "name": "Easy Bulls",
+        "rank": "#257"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "40",
+        "50"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/03/01",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,791",
+        "name": "COLOMBIA FORCE",
+        "rank": "#261"
+      },
+      "notes": "—",
+      "result": "-22",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,359",
+        "name": "S Việt Nam",
+        "rank": "#57"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "40",
+        "50"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/26",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,813",
+        "name": "COLOMBIA FORCE",
+        "rank": "#253"
+      },
+      "notes": "—",
+      "result": "-28",
+      "right": {
+        "division": "Iconic",
+        "glory": "18,959",
+        "name": "ESH yes",
+        "rank": "#62"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "68",
+        "75"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/24",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,841",
+        "name": "COLOMBIA FORCE",
+        "rank": "#244"
+      },
+      "notes": "Time War",
+      "result": "-109",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,084",
+        "name": "EMPIRE UNITED",
+        "rank": "#182"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/22",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,950",
+        "name": "COLOMBIA FORCE",
+        "rank": "#250"
+      },
+      "notes": "Close War",
+      "result": "131",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,537",
+        "name": "Fear☠️Germany",
+        "rank": "#722"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "72"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/20",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,819",
+        "name": "COLOMBIA FORCE",
+        "rank": "#237"
+      },
+      "notes": "—",
+      "result": "-141",
+      "right": {
+        "division": "Prestigious",
+        "glory": "15,511",
+        "name": "ツクヨミGGA",
+        "rank": "#227"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "70",
+        "75"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/17",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,960",
+        "name": "COLOMBIA FORCE",
+        "rank": "#227"
+      },
+      "notes": "—",
+      "result": "-52",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,919",
+        "name": "Cамородки NEW",
+        "rank": "#84"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "28",
+        "75"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/16",
+      "left": {
+        "division": "Prestigious",
+        "glory": "15,012",
+        "name": "COLOMBIA FORCE",
+        "rank": "#243"
+      },
+      "notes": "—",
+      "result": "274",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,241",
+        "name": "OutCasts69",
+        "rank": "#359"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "65"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/14",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,738",
+        "name": "COLOMBIA FORCE",
+        "rank": "#248"
+      },
+      "notes": "—",
+      "result": "201",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,490",
+        "name": "Spanish Team",
+        "rank": "#316"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "21"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/11",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,537",
+        "name": "COLOMBIA FORCE",
+        "rank": "#251"
+      },
+      "notes": "—",
+      "result": "120",
+      "right": {
+        "division": "Honorable",
+        "glory": "10,493",
+        "name": "HFNT",
+        "rank": "#854"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "45"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/09",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,417",
+        "name": "COLOMBIA FORCE",
+        "rank": "#238"
+      },
+      "notes": "—",
+      "result": "-69",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,737",
+        "name": "NEUTRALISM",
+        "rank": "#128"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "65",
+        "75"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/07",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,486",
+        "name": "COLOMBIA FORCE",
+        "rank": "#244"
+      },
+      "notes": "—",
+      "result": "189",
+      "right": {
+        "division": "Honorable",
+        "glory": "11,091",
+        "name": "Türk Zirvesi",
+        "rank": "#756"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "69"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/05",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,297",
+        "name": "COLOMBIA FORCE",
+        "rank": "#265"
+      },
+      "notes": "—",
+      "result": "497",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,465",
+        "name": "RUSSWARRIORS1",
+        "rank": "#227"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "71"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/02/02",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,800",
+        "name": "COLOMBIA FORCE",
+        "rank": "#269"
+      },
+      "notes": "Time War",
+      "result": "236",
+      "right": {
+        "division": "Honorable",
+        "glory": "11,220",
+        "name": "Türk Zirvesi",
+        "rank": "#717"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/28",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,564",
+        "name": "COLOMBIA FORCE",
+        "rank": "#270"
+      },
+      "notes": "—",
+      "result": "332",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,136",
+        "name": "☆Hauwech GmbH☆",
+        "rank": "#435"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "39"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/26",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,232",
+        "name": "COLOMBIA FORCE",
+        "rank": "#350"
+      },
+      "notes": "—",
+      "result": "644",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,331",
+        "name": "DragonTurk",
+        "rank": "#161"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "71"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/24",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,588",
+        "name": "COLOMBIA FORCE",
+        "rank": "#401"
+      },
+      "notes": "Close War",
+      "result": "318",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,392",
+        "name": "LES 8 NATIONS",
+        "rank": "#234"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "72"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/21",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,270",
+        "name": "COLOMBIA FORCE",
+        "rank": "#434"
+      },
+      "notes": "—",
+      "result": "250",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,665",
+        "name": "Comando Élite",
+        "rank": "#506"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "69"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/19",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,020",
+        "name": "COLOMBIA FORCE",
+        "rank": "#357"
+      },
+      "notes": "Close War",
+      "result": "-170",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,258",
+        "name": "OutCasts69",
+        "rank": "#420"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "74"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/17",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,190",
+        "name": "COLOMBIA FORCE",
+        "rank": "#462"
+      },
+      "notes": "Close War",
+      "result": "387",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,306",
+        "name": "KOREA ARMY NO.1",
+        "rank": "#159"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "73"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/15",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,803",
+        "name": "COLOMBIA FORCE",
+        "rank": "#518"
+      },
+      "notes": "—",
+      "result": "144",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,443",
+        "name": "The Invasion",
+        "rank": "#1090"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "63"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/12",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,659",
+        "name": "COLOMBIA FORCE",
+        "rank": "#368"
+      },
+      "notes": "Close War",
+      "result": "-171",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,866",
+        "name": "Alliance - Ü30",
+        "rank": "#503"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "71",
+        "73"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/10",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,830",
+        "name": "COLOMBIA FORCE",
+        "rank": "#507"
+      },
+      "notes": "—",
+      "result": "254",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,305",
+        "name": "Западный Рубеж",
+        "rank": "#594"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "62"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/07",
+      "left": {
+        "division": "Honorable",
+        "glory": "11,576",
+        "name": "COLOMBIA FORCE",
+        "rank": "#775"
+      },
+      "notes": "Close War",
+      "result": "286",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,300",
+        "name": "無衣",
+        "rank": "#408"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "72"
+      ],
+      "page": 5
+    },
+    {
+      "date": "2026/01/03",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,601",
+        "name": "COLOMBIA FORCE",
+        "rank": "#265"
+      },
+      "notes": "—",
+      "result": "-149",
+      "right": {
+        "division": "Prestigious",
+        "glory": "15,364",
+        "name": "Easy Bulls",
+        "rank": "#240"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "32",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/31",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,750",
+        "name": "COLOMBIA FORCE",
+        "rank": "#275"
+      },
+      "notes": "Close War",
+      "result": "227",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,725",
+        "name": "Tupinambás Br",
+        "rank": "#350"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "47"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/29",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,523",
+        "name": "COLOMBIA FORCE",
+        "rank": "#260"
+      },
+      "notes": "Close War",
+      "result": "-88",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,470",
+        "name": "Legião Portugal",
+        "rank": "#142"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "49"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/27",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,611",
+        "name": "COLOMBIA FORCE",
+        "rank": "#233"
+      },
+      "notes": "Close War",
+      "result": "-189",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,417",
+        "name": "Easy Bulls",
+        "rank": "#301"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/24",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,800",
+        "name": "COLOMBIA FORCE",
+        "rank": "#244"
+      },
+      "notes": "Close War",
+      "result": "245",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,392",
+        "name": "無衣",
+        "rank": "#511"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "73"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/21",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,555",
+        "name": "COLOMBIA FORCE",
+        "rank": "#265"
+      },
+      "notes": "—",
+      "result": "279",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,585",
+        "name": "KAYGISIZLAR",
+        "rank": "#457"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "68"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/19",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,276",
+        "name": "COLOMBIA FORCE",
+        "rank": "#277"
+      },
+      "notes": "—",
+      "result": "175",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,028",
+        "name": "United Nations",
+        "rank": "#553"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "62"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/17",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,101",
+        "name": "COLOMBIA FORCE",
+        "rank": "#286"
+      },
+      "notes": "Close War",
+      "result": "201",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,522",
+        "name": "KAYGISIZLAR",
+        "rank": "#448"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "72"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/15",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,900",
+        "name": "COLOMBIA FORCE",
+        "rank": "#277"
+      },
+      "notes": "Close War",
+      "result": "-38",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,590",
+        "name": "【KOREA☆Z】",
+        "rank": "#84"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/12",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,938",
+        "name": "COLOMBIA FORCE",
+        "rank": "#254"
+      },
+      "notes": "—",
+      "result": "-130",
+      "right": {
+        "division": "Prestigious",
+        "glory": "15,053",
+        "name": "1st Poland",
+        "rank": "#191"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "44",
+        "74"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/09",
+      "left": {
+        "division": "Prestigious",
+        "glory": "14,068",
+        "name": "COLOMBIA FORCE",
+        "rank": "#295"
+      },
+      "notes": "Close War",
+      "result": "431",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,644",
+        "name": "ChillinVeterans",
+        "rank": "#278"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "72"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/06",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,637",
+        "name": "COLOMBIA FORCE",
+        "rank": "#296"
+      },
+      "notes": "—",
+      "result": "133",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,801",
+        "name": "The Invasion",
+        "rank": "#940"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "57"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/04",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,504",
+        "name": "COLOMBIA FORCE",
+        "rank": "#309"
+      },
+      "notes": "—",
+      "result": "206",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,039",
+        "name": "Francosphere",
+        "rank": "#479"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "61"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/12/02",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,298",
+        "name": "COLOMBIA FORCE",
+        "rank": "#279"
+      },
+      "notes": "Close War",
+      "result": "-173",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,432",
+        "name": "Easy Bulls",
+        "rank": "#323"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/29",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,471",
+        "name": "COLOMBIA FORCE",
+        "rank": "#247"
+      },
+      "notes": "Close War",
+      "result": "-143",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,199",
+        "name": "Lietuva Elite",
+        "rank": "#213"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/27",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,614",
+        "name": "COLOMBIA FORCE",
+        "rank": "#254"
+      },
+      "notes": "Time War",
+      "result": "204",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,102",
+        "name": "**RAZORS**",
+        "rank": "#433"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/25",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,410",
+        "name": "COLOMBIA FORCE",
+        "rank": "#242"
+      },
+      "notes": "—",
+      "result": "-119",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,754",
+        "name": "폴라리스 Alpha",
+        "rank": "#170"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "36",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/23",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,529",
+        "name": "COLOMBIA FORCE",
+        "rank": "#229"
+      },
+      "notes": "—",
+      "result": "-15",
+      "right": {
+        "division": "Iconic",
+        "glory": "19,040",
+        "name": "WinningWW",
+        "rank": "#20"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "65",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/20",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,544",
+        "name": "COLOMBIA FORCE",
+        "rank": "#245"
+      },
+      "notes": "—",
+      "result": "192",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,761",
+        "name": "Spanish Team",
+        "rank": "#442"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "26"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/18",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,352",
+        "name": "COLOMBIA FORCE",
+        "rank": "#273"
+      },
+      "notes": "Time War",
+      "result": "276",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,334",
+        "name": "AL SANCAK",
+        "rank": "#217"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/16",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,076",
+        "name": "COLOMBIA FORCE",
+        "rank": "#261"
+      },
+      "notes": "—",
+      "result": "-26",
+      "right": {
+        "division": "Iconic",
+        "glory": "17,481",
+        "name": "NEUTRALISM",
+        "rank": "#50"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "62",
+        "75"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/14",
+      "left": {
+        "division": "Prestigious",
+        "glory": "13,102",
+        "name": "COLOMBIA FORCE",
+        "rank": "#271"
+      },
+      "notes": "—",
+      "result": "183",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,639",
+        "name": "Dominion Legion",
+        "rank": "#796"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "56"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/12",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,919",
+        "name": "COLOMBIA FORCE",
+        "rank": "#283"
+      },
+      "notes": "—",
+      "result": "146",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,727",
+        "name": "슬기로운 도미생활",
+        "rank": "#760"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "53"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/09",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,773",
+        "name": "COLOMBIA FORCE",
+        "rank": "#302"
+      },
+      "notes": "—",
+      "result": "232",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,864",
+        "name": "Hauwech GmbH2",
+        "rank": "#391"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "35"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/07",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,541",
+        "name": "COLOMBIA FORCE",
+        "rank": "#275"
+      },
+      "notes": "Close War",
+      "result": "-103",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,235",
+        "name": "千秋水",
+        "rank": "#137"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "74"
+      ],
+      "page": 6
+    },
+    {
+      "date": "2025/11/05",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,644",
+        "name": "COLOMBIA FORCE",
+        "rank": "#310"
+      },
+      "notes": "Time War",
+      "result": "246",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,022",
+        "name": "**RAZORS**",
+        "rank": "#345"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/11/02",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,398",
+        "name": "COLOMBIA FORCE",
+        "rank": "#278"
+      },
+      "notes": "—",
+      "result": "-73",
+      "right": {
+        "division": "Prestigious",
+        "glory": "14,825",
+        "name": "Rebel Sanctuary",
+        "rank": "#124"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "59",
+        "70"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/31",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,471",
+        "name": "COLOMBIA FORCE",
+        "rank": "#326"
+      },
+      "notes": "Close War",
+      "result": "327",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,565",
+        "name": "千秋水",
+        "rank": "#130"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "73"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/29",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,144",
+        "name": "COLOMBIA FORCE",
+        "rank": "#337"
+      },
+      "notes": "—",
+      "result": "145",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,889",
+        "name": "Quiet Riot(Kor)",
+        "rank": "#855"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "70"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/27",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,999",
+        "name": "COLOMBIA FORCE",
+        "rank": "#311"
+      },
+      "notes": "—",
+      "result": "-22",
+      "right": {
+        "division": "Iconic",
+        "glory": "16,732",
+        "name": "F8tal",
+        "rank": "#41"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "44",
+        "100"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/24",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,021",
+        "name": "COLOMBIA FORCE",
+        "rank": "#342"
+      },
+      "notes": "—",
+      "result": "162",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,409",
+        "name": "Magyarok Nyila1",
+        "rank": "#615"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "20"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/22",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,859",
+        "name": "COLOMBIA FORCE",
+        "rank": "#286"
+      },
+      "notes": "—",
+      "result": "-148",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,482",
+        "name": "BLACK PHOENIX",
+        "rank": "#233"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "89",
+        "100"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/20",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,007",
+        "name": "COLOMBIA FORCE",
+        "rank": "#225"
+      },
+      "notes": "Close War",
+      "result": "-171",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,174",
+        "name": "ALMA SICARIA",
+        "rank": "#289"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "97",
+        "98"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/18",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,178",
+        "name": "COLOMBIA FORCE",
+        "rank": "#230"
+      },
+      "notes": "—",
+      "result": "126",
+      "right": {
+        "division": "Honorable",
+        "glory": "7,970",
+        "name": "ELITE PT-BR",
+        "rank": "#1275"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "57"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/15",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,052",
+        "name": "COLOMBIA FORCE",
+        "rank": "#163"
+      },
+      "notes": "Close War",
+      "result": "-171",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,935",
+        "name": "ALMA SICARIA",
+        "rank": "#326"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "99",
+        "99"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/13",
+      "left": {
+        "division": "Prestigious",
+        "glory": "12,223",
+        "name": "COLOMBIA FORCE",
+        "rank": "#193"
+      },
+      "notes": "—",
+      "result": "315",
+      "right": {
+        "division": "Honorable",
+        "glory": "10,930",
+        "name": "Калина красная☆",
+        "rank": "#534"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "97",
+        "90"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/11",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,908",
+        "name": "COLOMBIA FORCE",
+        "rank": "#265"
+      },
+      "notes": "Close War",
+      "result": "241",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,549",
+        "name": "ALMA SICARIA",
+        "rank": "#235"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "98",
+        "97"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/08",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,667",
+        "name": "COLOMBIA FORCE",
+        "rank": "#447"
+      },
+      "notes": "—",
+      "result": "232",
+      "right": {
+        "division": "Honorable",
+        "glory": "11,113",
+        "name": "SoCal Kings",
+        "rank": "#533"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "94",
+        "87"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/06",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,435",
+        "name": "COLOMBIA FORCE",
+        "rank": "#448"
+      },
+      "notes": "—",
+      "result": "-25",
+      "right": {
+        "division": "Iconic",
+        "glory": "15,624",
+        "name": "BLACKLIST",
+        "rank": "#85"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "70",
+        "100"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/04",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,871",
+        "name": "COLOMBIA FORCE",
+        "rank": "#480"
+      },
+      "notes": "—",
+      "result": "264",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,548",
+        "name": "Thailand Siam",
+        "rank": "#461"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "97",
+        "73"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/10/02",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,607",
+        "name": "COLOMBIA FORCE",
+        "rank": "#508"
+      },
+      "notes": "—",
+      "result": "278",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,558",
+        "name": "13 NACIONES",
+        "rank": "#446"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "28"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/29",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,329",
+        "name": "COLOMBIA FORCE",
+        "rank": "#498"
+      },
+      "notes": "—",
+      "result": "-15",
+      "right": {
+        "division": "Triumphant",
+        "glory": "20,367",
+        "name": "Ctrl Alt Exiles",
+        "rank": "#8"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "25",
+        "100"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/27",
+      "left": {
+        "division": "Prestigious",
+        "glory": "11,344",
+        "name": "COLOMBIA FORCE",
+        "rank": "#480"
+      },
+      "notes": "Close War",
+      "result": "-31",
+      "right": {
+        "division": "Prestigious",
+        "glory": "15,432",
+        "name": "ViperousWizards",
+        "rank": "#103"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "97",
+        "98"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/25",
+      "left": {
+        "division": "Honorable",
+        "glory": "11,375",
+        "name": "COLOMBIA FORCE",
+        "rank": "#506"
+      },
+      "notes": "—",
+      "result": "202",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,755",
+        "name": "루돌프",
+        "rank": "#781"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "44"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/23",
+      "left": {
+        "division": "Honorable",
+        "glory": "11,173",
+        "name": "COLOMBIA FORCE",
+        "rank": "#548"
+      },
+      "notes": "—",
+      "result": "267",
+      "right": {
+        "division": "Honorable",
+        "glory": "10,907",
+        "name": "Comando Élite",
+        "rank": "#513"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "65"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/21",
+      "left": {
+        "division": "Honorable",
+        "glory": "10,906",
+        "name": "COLOMBIA FORCE",
+        "rank": "#520"
+      },
+      "notes": "Close War",
+      "result": "-73",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,298",
+        "name": "직장인의 쉼터",
+        "rank": "#234"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "75"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/18",
+      "left": {
+        "division": "Honorable",
+        "glory": "10,979",
+        "name": "COLOMBIA FORCE",
+        "rank": "#546"
+      },
+      "notes": "—",
+      "result": "215",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,085",
+        "name": "MADE IN SPAIN",
+        "rank": "#1217"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "51"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/16",
+      "left": {
+        "division": "Honorable",
+        "glory": "10,764",
+        "name": "COLOMBIA FORCE",
+        "rank": "#607"
+      },
+      "notes": "Close War",
+      "result": "390",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,909",
+        "name": "Türk Zirvesi",
+        "rank": "#678"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "71"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/14",
+      "left": {
+        "division": "Honorable",
+        "glory": "10,374",
+        "name": "COLOMBIA FORCE",
+        "rank": "#635"
+      },
+      "notes": "—",
+      "result": "192",
+      "right": {
+        "division": "Renowned",
+        "glory": "7,037",
+        "name": "Guerrerolatino",
+        "rank": "#1585"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "75"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/12",
+      "left": {
+        "division": "Honorable",
+        "glory": "10,182",
+        "name": "COLOMBIA FORCE",
+        "rank": "#678"
+      },
+      "notes": "—",
+      "result": "217",
+      "right": {
+        "division": "Renowned",
+        "glory": "7,319",
+        "name": "Canadian Might",
+        "rank": "#1452"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "61"
+      ],
+      "page": 7
+    },
+    {
+      "date": "2025/09/09",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,965",
+        "name": "COLOMBIA FORCE",
+        "rank": "#747"
+      },
+      "notes": "—",
+      "result": "365",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,875",
+        "name": "Special Forces",
+        "rank": "#882"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "62"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/09/07",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,600",
+        "name": "COLOMBIA FORCE",
+        "rank": "#780"
+      },
+      "notes": "—",
+      "result": "235",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,698",
+        "name": "HFNT",
+        "rank": "#919"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "99",
+        "65"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/09/05",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,365",
+        "name": "COLOMBIA FORCE",
+        "rank": "#853"
+      },
+      "notes": "—",
+      "result": "299",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,735",
+        "name": "Türk Zirvesi",
+        "rank": "#628"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "54"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/09/02",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,066",
+        "name": "COLOMBIA FORCE",
+        "rank": "#817"
+      },
+      "notes": "—",
+      "result": "-39",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,751",
+        "name": "Chef Wolves GER",
+        "rank": "#224"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "47",
+        "73"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/09/01",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,105",
+        "name": "COLOMBIA FORCE",
+        "rank": "#777"
+      },
+      "notes": "Time War",
+      "result": "-140",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,924",
+        "name": "Spanish Team",
+        "rank": "#668"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "75"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/29",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,245",
+        "name": "COLOMBIA FORCE",
+        "rank": "#751"
+      },
+      "notes": "—",
+      "result": "-52",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,299",
+        "name": "Tupinambás Br",
+        "rank": "#262"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "88",
+        "94"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/27",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,297",
+        "name": "COLOMBIA FORCE",
+        "rank": "#704"
+      },
+      "notes": "Close War",
+      "result": "-130",
+      "right": {
+        "division": "Honorable",
+        "glory": "10,319",
+        "name": "Ares Brasil",
+        "rank": "#519"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "97",
+        "98"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/25",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,427",
+        "name": "COLOMBIA FORCE",
+        "rank": "#796"
+      },
+      "notes": "—",
+      "result": "432",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,961",
+        "name": "Invincible UA",
+        "rank": "#766"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "100",
+        "91"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/23",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,995",
+        "name": "COLOMBIA FORCE",
+        "rank": "#829"
+      },
+      "notes": "—",
+      "result": "211",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,029",
+        "name": "MACEDONIA4EVER",
+        "rank": "#1866"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "75",
+        "30"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/21",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,784",
+        "name": "COLOMBIA FORCE",
+        "rank": "#868"
+      },
+      "notes": "—",
+      "result": "176",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,509",
+        "name": "Приют безумных",
+        "rank": "#1548"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "70",
+        "52"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/19",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,608",
+        "name": "COLOMBIA FORCE",
+        "rank": "#890"
+      },
+      "notes": "—",
+      "result": "157",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,750",
+        "name": "USSR",
+        "rank": "#1974"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "34"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/16",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,451",
+        "name": "COLOMBIA FORCE",
+        "rank": "#843"
+      },
+      "notes": "Close War",
+      "result": "-136",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,494",
+        "name": "Spanish Team",
+        "rank": "#683"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "49"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/14",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,587",
+        "name": "COLOMBIA FORCE",
+        "rank": "#805"
+      },
+      "notes": "—",
+      "result": "-31",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,634",
+        "name": "Hunters BR",
+        "rank": "#178"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "49"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/12",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,618",
+        "name": "COLOMBIA FORCE",
+        "rank": "#886"
+      },
+      "notes": "Close War",
+      "result": "282",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,652",
+        "name": "Battletoads",
+        "rank": "#732"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "49",
+        "48"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/09",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,336",
+        "name": "COLOMBIA FORCE",
+        "rank": "#921"
+      },
+      "notes": "—",
+      "result": "162",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,635",
+        "name": "Nuke™",
+        "rank": "#1909"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "29"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/07",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,174",
+        "name": "COLOMBIA FORCE",
+        "rank": "#818"
+      },
+      "notes": "—",
+      "result": "-247",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,920",
+        "name": "Hobbit Zombies",
+        "rank": "#1472"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "66",
+        "74"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/05",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,421",
+        "name": "COLOMBIA FORCE",
+        "rank": "#722"
+      },
+      "notes": "—",
+      "result": "-211",
+      "right": {
+        "division": "Renowned",
+        "glory": "8,009",
+        "name": "Georgia_ქართუ",
+        "rank": "#1079"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "62",
+        "75"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/03",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,632",
+        "name": "COLOMBIA FORCE",
+        "rank": "#666"
+      },
+      "notes": "—",
+      "result": "-56",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,555",
+        "name": "Francosphere",
+        "rank": "#285"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "68",
+        "72"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/08/01",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,688",
+        "name": "COLOMBIA FORCE",
+        "rank": "#619"
+      },
+      "notes": "—",
+      "result": "-43",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,139",
+        "name": "Rebel Wizards",
+        "rank": "#180"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "69",
+        "75"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/30",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,731",
+        "name": "COLOMBIA FORCE",
+        "rank": "#573"
+      },
+      "notes": "—",
+      "result": "-42",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,219",
+        "name": "직장인의 쉼터",
+        "rank": "#154"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "49",
+        "75"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/27",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,773",
+        "name": "COLOMBIA FORCE",
+        "rank": "#613"
+      },
+      "notes": "—",
+      "result": "202",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,650",
+        "name": "Ghosts-BR",
+        "rank": "#1712"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "49",
+        "39"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/25",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,571",
+        "name": "COLOMBIA FORCE",
+        "rank": "#816"
+      },
+      "notes": "—",
+      "result": "390",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,877",
+        "name": "no update 12.20",
+        "rank": "#110"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "38"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/23",
+      "left": {
+        "division": "Renowned",
+        "glory": "8,181",
+        "name": "COLOMBIA FORCE",
+        "rank": "#986"
+      },
+      "notes": "—",
+      "result": "282",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,198",
+        "name": "Czech team",
+        "rank": "#643"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "34"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/21",
+      "left": {
+        "division": "Honorable",
+        "glory": "7,899",
+        "name": "COLOMBIA FORCE",
+        "rank": "#915"
+      },
+      "notes": "—",
+      "result": "-153",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,463",
+        "name": "Kyiv Alcoholics",
+        "rank": "#765"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "68",
+        "74"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/19",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,052",
+        "name": "COLOMBIA FORCE",
+        "rank": "#738"
+      },
+      "notes": "—",
+      "result": "-146",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,909",
+        "name": "Spanish Team",
+        "rank": "#423"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "66",
+        "73"
+      ],
+      "page": 8
+    },
+    {
+      "date": "2025/07/16",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,198",
+        "name": "COLOMBIA FORCE",
+        "rank": "#1021"
+      },
+      "notes": "—",
+      "result": "255",
+      "right": {
+        "division": "Renowned",
+        "glory": "7,686",
+        "name": "Mexico Leyendas",
+        "rank": "#1081"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "50",
+        "29"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/07/12",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,902",
+        "name": "COLOMBIA FORCE",
+        "rank": "#599"
+      },
+      "notes": "—",
+      "result": "214",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,986",
+        "name": "♡8年目のにこぷん♡^_^",
+        "rank": "#1412"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "62"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/07/10",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,688",
+        "name": "COLOMBIA FORCE",
+        "rank": "#640"
+      },
+      "notes": "—",
+      "result": "255",
+      "right": {
+        "division": "Renowned",
+        "glory": "7,374",
+        "name": "初心者ハッテンバ☆ぐろあぷ☆",
+        "rank": "#1239"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "36"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/07/08",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,433",
+        "name": "COLOMBIA FORCE",
+        "rank": "#685"
+      },
+      "notes": "—",
+      "result": "206",
+      "right": {
+        "division": "Honorable",
+        "glory": "7,923",
+        "name": "БЪЛГАРИЯ 681",
+        "rank": "#1011"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "71",
+        "31"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/07/05",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,227",
+        "name": "COLOMBIA FORCE",
+        "rank": "#706"
+      },
+      "notes": "Close War",
+      "result": "187",
+      "right": {
+        "division": "Renowned",
+        "glory": "7,247",
+        "name": "Dansk Alliance®",
+        "rank": "#1215"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "38",
+        "36"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/07/03",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,040",
+        "name": "COLOMBIA FORCE",
+        "rank": "#653"
+      },
+      "notes": "—",
+      "result": "-150",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,667",
+        "name": "Калина красная☆",
+        "rank": "#601"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "78",
+        "89"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/30",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,190",
+        "name": "COLOMBIA FORCE",
+        "rank": "#616"
+      },
+      "notes": "—",
+      "result": "-67",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,736",
+        "name": "EliteBrothersBr",
+        "rank": "#241"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "60",
+        "75"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/28",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,257",
+        "name": "COLOMBIA FORCE",
+        "rank": "#666"
+      },
+      "notes": "—",
+      "result": "264",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,918",
+        "name": "Dutch Oldies",
+        "rank": "#644"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "68",
+        "62"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/26",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,993",
+        "name": "COLOMBIA FORCE",
+        "rank": "#688"
+      },
+      "notes": "—",
+      "result": "149",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,839",
+        "name": "WhiskeyWarriors",
+        "rank": "#1770"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "48",
+        "25"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/24",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,844",
+        "name": "COLOMBIA FORCE",
+        "rank": "#670"
+      },
+      "notes": "Close War",
+      "result": "-55",
+      "right": {
+        "division": "Prestigious",
+        "glory": "11,814",
+        "name": "해독",
+        "rank": "#202"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "48",
+        "48"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/22",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,899",
+        "name": "COLOMBIA FORCE",
+        "rank": "#577"
+      },
+      "notes": "—",
+      "result": "-261",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,971",
+        "name": "Dominion Legion",
+        "rank": "#1389"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "37",
+        "42"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/19",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,160",
+        "name": "COLOMBIA FORCE",
+        "rank": "#593"
+      },
+      "notes": "—",
+      "result": "178",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,958",
+        "name": "Landsknechte",
+        "rank": "#1176"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "47",
+        "22"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/17",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,982",
+        "name": "COLOMBIA FORCE",
+        "rank": "#538"
+      },
+      "notes": "Close War",
+      "result": "-209",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,405",
+        "name": "Hauwech GmbH2",
+        "rank": "#802"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "56",
+        "59"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/15",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,191",
+        "name": "COLOMBIA FORCE",
+        "rank": "#518"
+      },
+      "notes": "—",
+      "result": "-35",
+      "right": {
+        "division": "Prestigious",
+        "glory": "13,080",
+        "name": "Garuda Muda",
+        "rank": "#95"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "53",
+        "74"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/13",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,226",
+        "name": "COLOMBIA FORCE",
+        "rank": "#471"
+      },
+      "notes": "—",
+      "result": "-201",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,838",
+        "name": "GODOS HISPANOS",
+        "rank": "#664"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "52",
+        "72"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/11",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,427",
+        "name": "COLOMBIA FORCE",
+        "rank": "#444"
+      },
+      "notes": "—",
+      "result": "-50",
+      "right": {
+        "division": "Prestigious",
+        "glory": "12,591",
+        "name": "Valhalla Exiles",
+        "rank": "#115"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "37",
+        "72"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/08",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,477",
+        "name": "COLOMBIA FORCE",
+        "rank": "#467"
+      },
+      "notes": "—",
+      "result": "206",
+      "right": {
+        "division": "Renowned",
+        "glory": "6,416",
+        "name": "57. ALAY ☪️",
+        "rank": "#1278"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "70",
+        "55"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/06",
+      "left": {
+        "division": "Honorable",
+        "glory": "9,271",
+        "name": "COLOMBIA FORCE",
+        "rank": "#545"
+      },
+      "notes": "—",
+      "result": "360",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,128",
+        "name": "Mexico Leyendas",
+        "rank": "#667"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "65",
+        "61"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/04",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,911",
+        "name": "COLOMBIA FORCE",
+        "rank": "#570"
+      },
+      "notes": "—",
+      "result": "179",
+      "right": {
+        "division": "Admirable",
+        "glory": "5,289",
+        "name": "Resistance fr",
+        "rank": "#1794"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "71",
+        "49"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/06/01",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,732",
+        "name": "COLOMBIA FORCE",
+        "rank": "#647"
+      },
+      "notes": "Close War",
+      "result": "553",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,502",
+        "name": "OSMANLI TOKADI",
+        "rank": "#329"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "72"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/05/30",
+      "left": {
+        "division": "Honorable",
+        "glory": "8,179",
+        "name": "COLOMBIA FORCE",
+        "rank": "#657"
+      },
+      "notes": "—",
+      "result": "133",
+      "right": {
+        "division": "Admirable",
+        "glory": "4,302",
+        "name": "Cerfs Volants",
+        "rank": "#2314"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "73",
+        "49"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/05/28",
+      "left": {
+        "division": "Renowned",
+        "glory": "8,046",
+        "name": "COLOMBIA FORCE",
+        "rank": "#700"
+      },
+      "notes": "—",
+      "result": "277",
+      "right": {
+        "division": "Honorable",
+        "glory": "7,983",
+        "name": "Türk Zirvesi",
+        "rank": "#626"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "74",
+        "62"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/05/26",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,769",
+        "name": "COLOMBIA FORCE",
+        "rank": "#661"
+      },
+      "notes": "—",
+      "result": "-145",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,495",
+        "name": "The Aesir",
+        "rank": "#588"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "38",
+        "73"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/05/24",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,914",
+        "name": "COLOMBIA FORCE",
+        "rank": "#706"
+      },
+      "notes": "—",
+      "result": "282",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,939",
+        "name": "利家とまつと私とゴリラ。",
+        "rank": "#1300"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "67",
+        "54"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/05/22",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,632",
+        "name": "COLOMBIA FORCE",
+        "rank": "#728"
+      },
+      "notes": "—",
+      "result": "231",
+      "right": {
+        "division": "Admirable",
+        "glory": "4,984",
+        "name": "INVASORI&DEMONI",
+        "rank": "#1779"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "14"
+      ],
+      "page": 9
+    },
+    {
+      "date": "2025/05/20",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,401",
+        "name": "COLOMBIA FORCE",
+        "rank": "#757"
+      },
+      "notes": "—",
+      "result": "160",
+      "right": {
+        "division": "Admirable",
+        "glory": "3,275",
+        "name": "Beer Bros.",
+        "rank": "#2983"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "72",
+        "48"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/05/17",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,241",
+        "name": "COLOMBIA FORCE",
+        "rank": "#765"
+      },
+      "notes": "—",
+      "result": "206",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,716",
+        "name": "HORDA AZTECA",
+        "rank": "#1322"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "33"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/05/15",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,035",
+        "name": "COLOMBIA FORCE",
+        "rank": "#776"
+      },
+      "notes": "—",
+      "result": "115",
+      "right": {
+        "division": "Established",
+        "glory": "1,628",
+        "name": "Lalliancetourix",
+        "rank": "#4287"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "65",
+        "24"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/05/13",
+      "left": {
+        "division": "Renowned",
+        "glory": "6,920",
+        "name": "COLOMBIA FORCE",
+        "rank": "#737"
+      },
+      "notes": "Close War",
+      "result": "-74",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,350",
+        "name": "Global Alliance",
+        "rank": "#287"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "61",
+        "63"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/05/11",
+      "left": {
+        "division": "Renowned",
+        "glory": "6,994",
+        "name": "COLOMBIA FORCE",
+        "rank": "#761"
+      },
+      "notes": "—",
+      "result": "209",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,540",
+        "name": "Canada eh",
+        "rank": "#1348"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "35"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/05/08",
+      "left": {
+        "division": "Renowned",
+        "glory": "6,785",
+        "name": "COLOMBIA FORCE",
+        "rank": "#700"
+      },
+      "notes": "—",
+      "result": "-73",
+      "right": {
+        "division": "Honorable",
+        "glory": "9,148",
+        "name": "Iron Robber$",
+        "rank": "#271"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "38",
+        "48"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/05/04",
+      "left": {
+        "division": "Renowned",
+        "glory": "6,858",
+        "name": "COLOMBIA FORCE",
+        "rank": "#632"
+      },
+      "notes": "—",
+      "result": "-175",
+      "right": {
+        "division": "Honorable",
+        "glory": "8,403",
+        "name": "Battletoads",
+        "rank": "#401"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "57",
+        "46"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/30",
+      "left": {
+        "division": "Renowned",
+        "glory": "7,033",
+        "name": "COLOMBIA FORCE",
+        "rank": "#641"
+      },
+      "notes": "—",
+      "result": "326",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,546",
+        "name": "Spanish Team",
+        "rank": "#1189"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "45",
+        "24"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/28",
+      "left": {
+        "division": "Renowned",
+        "glory": "6,707",
+        "name": "COLOMBIA FORCE",
+        "rank": "#702"
+      },
+      "notes": "—",
+      "result": "573",
+      "right": {
+        "division": "Honorable",
+        "glory": "7,711",
+        "name": "MG Nest",
+        "rank": "#559"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "67",
+        "56"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/26",
+      "left": {
+        "division": "Renowned",
+        "glory": "6,134",
+        "name": "COLOMBIA FORCE",
+        "rank": "#784"
+      },
+      "notes": "—",
+      "result": "273",
+      "right": {
+        "division": "Renowned",
+        "glory": "5,985",
+        "name": "롬-성남분당경기-꽃길만걷자",
+        "rank": "#635"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "48",
+        "35"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/24",
+      "left": {
+        "division": "Renowned",
+        "glory": "5,861",
+        "name": "COLOMBIA FORCE",
+        "rank": "#1278"
+      },
+      "notes": "—",
+      "result": "361",
+      "right": {
+        "division": "Honorable",
+        "glory": "7,940",
+        "name": "민트♡",
+        "rank": "#440"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "40",
+        "36"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/19",
+      "left": {
+        "division": "—",
+        "glory": "7,763",
+        "name": "COLOMBIA FORCE",
+        "rank": "#821"
+      },
+      "notes": "Close War",
+      "result": "343",
+      "right": {
+        "division": "—",
+        "glory": "9,076",
+        "name": "Chile Killers",
+        "rank": "#368"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "67",
+        "67"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/16",
+      "left": {
+        "division": "—",
+        "glory": "7,420",
+        "name": "COLOMBIA FORCE",
+        "rank": "#730"
+      },
+      "notes": "—",
+      "result": "-164",
+      "right": {
+        "division": "—",
+        "glory": "7,773",
+        "name": "Quiet Riot(Kor)",
+        "rank": "#756"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "71",
+        "85"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/14",
+      "left": {
+        "division": "—",
+        "glory": "7,584",
+        "name": "COLOMBIA FORCE",
+        "rank": "#758"
+      },
+      "notes": "—",
+      "result": "156",
+      "right": {
+        "division": "—",
+        "glory": "4,696",
+        "name": "태극기휘날리며(킹왕짱)",
+        "rank": "#1956"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "46",
+        "33"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/12",
+      "left": {
+        "division": "—",
+        "glory": "7,428",
+        "name": "COLOMBIA FORCE",
+        "rank": "#720"
+      },
+      "notes": "—",
+      "result": "-83",
+      "right": {
+        "division": "—",
+        "glory": "9,542",
+        "name": "Warriors Brasil",
+        "rank": "#318"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "65",
+        "71"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/10",
+      "left": {
+        "division": "—",
+        "glory": "7,511",
+        "name": "COLOMBIA FORCE",
+        "rank": "#678"
+      },
+      "notes": "—",
+      "result": "-46",
+      "right": {
+        "division": "—",
+        "glory": "10,834",
+        "name": "ЛИГА",
+        "rank": "#168"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "23",
+        "72"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/07",
+      "left": {
+        "division": "—",
+        "glory": "7,557",
+        "name": "COLOMBIA FORCE",
+        "rank": "#727"
+      },
+      "notes": "Close War",
+      "result": "299",
+      "right": {
+        "division": "—",
+        "glory": "7,933",
+        "name": "Türk Zirvesi",
+        "rank": "#499"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "68",
+        "68"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/05",
+      "left": {
+        "division": "—",
+        "glory": "7,258",
+        "name": "COLOMBIA FORCE",
+        "rank": "#761"
+      },
+      "notes": "—",
+      "result": "171",
+      "right": {
+        "division": "—",
+        "glory": "4,865",
+        "name": "Puppet Masters",
+        "rank": "#1685"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "49",
+        "24"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/04/03",
+      "left": {
+        "division": "—",
+        "glory": "7,087",
+        "name": "COLOMBIA FORCE",
+        "rank": "#710"
+      },
+      "notes": "—",
+      "result": "-100",
+      "right": {
+        "division": "—",
+        "glory": "8,858",
+        "name": "Global Alliance",
+        "rank": "#388"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "53",
+        "68"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/03/31",
+      "left": {
+        "division": "—",
+        "glory": "7,187",
+        "name": "COLOMBIA FORCE",
+        "rank": "#719"
+      },
+      "notes": "—",
+      "result": "134",
+      "right": {
+        "division": "—",
+        "glory": "3,348",
+        "name": "Deutsche LEGION",
+        "rank": "#2677"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "75",
+        "41"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/03/29",
+      "left": {
+        "division": "—",
+        "glory": "7,053",
+        "name": "COLOMBIA FORCE",
+        "rank": "#674"
+      },
+      "notes": "—",
+      "result": "-85",
+      "right": {
+        "division": "—",
+        "glory": "9,100",
+        "name": "STOP WAR IN UKR",
+        "rank": "#304"
+      },
+      "size": "20 v 20",
+      "stars": [
+        "53",
+        "97"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/03/27",
+      "left": {
+        "division": "—",
+        "glory": "7,138",
+        "name": "COLOMBIA FORCE",
+        "rank": "#718"
+      },
+      "notes": "—",
+      "result": "235",
+      "right": {
+        "division": "—",
+        "glory": "6,240",
+        "name": "USSR",
+        "rank": "#895"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "69",
+        "33"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/03/25",
+      "left": {
+        "division": "—",
+        "glory": "6,903",
+        "name": "COLOMBIA FORCE",
+        "rank": "#681"
+      },
+      "notes": "—",
+      "result": "-79",
+      "right": {
+        "division": "—",
+        "glory": "9,125",
+        "name": "Franken-Elite",
+        "rank": "#283"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "36",
+        "50"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/03/22",
+      "left": {
+        "division": "—",
+        "glory": "6,982",
+        "name": "COLOMBIA FORCE",
+        "rank": "#608"
+      },
+      "notes": "—",
+      "result": "-125",
+      "right": {
+        "division": "—",
+        "glory": "8,238",
+        "name": "Boss Piper",
+        "rank": "#441"
+      },
+      "size": "15 v 15",
+      "stars": [
+        "64",
+        "73"
+      ],
+      "page": 10
+    },
+    {
+      "date": "2025/03/20",
+      "left": {
+        "division": "—",
+        "glory": "7,107",
+        "name": "COLOMBIA FORCE",
+        "rank": "#633"
+      },
+      "notes": "—",
+      "result": "156",
+      "right": {
+        "division": "—",
+        "glory": "4,219",
+        "name": "Magyar Betyárok",
+        "rank": "#1810"
+      },
+      "size": "10 v 10",
+      "stars": [
+        "47",
+        "33"
+      ],
+      "page": 10
+    }
+  ]
+}
