@@ -9,20 +9,148 @@ import type { OutcomeFilter, WarEntry, WarsSnapshot } from './types/war';
 import { computeSummaryStats, matchesWarFilters } from './utils/warUtils';
 
 const PAGE_SIZE = 25;
+const VALID_OUTCOMES: OutcomeFilter[] = ['all', 'win', 'loss', 'time', 'close'];
+
+interface NavigationState {
+  query: string;
+  outcome: OutcomeFilter;
+  size: string;
+  selectedPeriod: string | null;
+  page: number;
+}
+
+function readNavigationStateFromUrl(): NavigationState {
+  if (typeof window === 'undefined') {
+    return {
+      query: '',
+      outcome: 'all',
+      size: 'all',
+      selectedPeriod: null,
+      page: 1,
+    };
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const rawPage = Number.parseInt(params.get('page') || '1', 10);
+  const page = Number.isFinite(rawPage) && rawPage >= 1 ? rawPage : 1;
+
+  const rawOutcome = params.get('outcome') as OutcomeFilter | null;
+  const outcome =
+    rawOutcome && VALID_OUTCOMES.includes(rawOutcome) ? rawOutcome : 'all';
+
+  const query = params.get('q') || '';
+  const size = params.get('size') || 'all';
+  const periodParam = params.get('period');
+  const selectedPeriod =
+    periodParam && periodParam.trim() ? periodParam.trim() : null;
+
+  return {
+    query,
+    outcome,
+    size,
+    selectedPeriod,
+    page,
+  };
+}
+
+function buildUrlForState(state: NavigationState): string {
+  const params = new URLSearchParams();
+  if (state.page > 1) params.set('page', String(state.page));
+  if (state.query.trim()) params.set('q', state.query);
+  if (state.outcome !== 'all') params.set('outcome', state.outcome);
+  if (state.size !== 'all') params.set('size', state.size);
+  if (state.selectedPeriod) params.set('period', state.selectedPeriod);
+
+  const search = params.toString();
+  const basePath = window.location.pathname;
+  return `${basePath}${search ? `?${search}` : ''}${window.location.hash}`;
+}
 
 export default function App() {
+  const initialNav = useMemo(() => readNavigationStateFromUrl(), []);
+
   const [wars, setWars] = useState<WarEntry[]>([]);
   const [updatedAt, setUpdatedAt] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
-  const [query, setQuery] = useState<string>('');
-  const [outcome, setOutcome] = useState<OutcomeFilter>('all');
-  const [size, setSize] = useState<string>('all');
-  const [selectedPeriod, setSelectedPeriod] = useState<string | null>(null);
-  const [page, setPage] = useState<number>(1);
+  const [query, setQuery] = useState<string>(initialNav.query);
+  const [outcome, setOutcome] = useState<OutcomeFilter>(initialNav.outcome);
+  const [size, setSize] = useState<string>(initialNav.size);
+  const [selectedPeriod, setSelectedPeriod] = useState<string | null>(
+    initialNav.selectedPeriod,
+  );
+  const [page, setPage] = useState<number>(initialNav.page);
 
   const listTopRef = useRef<HTMLDivElement>(null);
+  const navStateRef = useRef<NavigationState>(initialNav);
+  navStateRef.current = { query, outcome, size, selectedPeriod, page };
+
+  useEffect(() => {
+    window.history.replaceState(initialNav, '', buildUrlForState(initialNav));
+  }, [initialNav]);
+
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      const stateFromHistory = event.state as Partial<NavigationState> | null;
+      const nextState: NavigationState =
+        stateFromHistory && typeof stateFromHistory.page === 'number'
+          ? {
+              query: typeof stateFromHistory.query === 'string' ? stateFromHistory.query : '',
+              outcome:
+                stateFromHistory.outcome &&
+                VALID_OUTCOMES.includes(stateFromHistory.outcome)
+                  ? stateFromHistory.outcome
+                  : 'all',
+              size: typeof stateFromHistory.size === 'string' ? stateFromHistory.size : 'all',
+              selectedPeriod:
+                typeof stateFromHistory.selectedPeriod === 'string'
+                  ? stateFromHistory.selectedPeriod
+                  : null,
+              page: stateFromHistory.page >= 1 ? stateFromHistory.page : 1,
+            }
+          : readNavigationStateFromUrl();
+
+      const pageChanged = nextState.page !== navStateRef.current.page;
+
+      setQuery(nextState.query);
+      setOutcome(nextState.outcome);
+      setSize(nextState.size);
+      setSelectedPeriod(nextState.selectedPeriod);
+      setPage(nextState.page);
+
+      if (pageChanged) {
+        requestAnimationFrame(() => {
+          listTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const commitNavigation = useCallback(
+    (patch: Partial<NavigationState>, mode: 'push' | 'replace' = 'push') => {
+      const nextState: NavigationState = {
+        ...navStateRef.current,
+        ...patch,
+      };
+      setQuery(nextState.query);
+      setOutcome(nextState.outcome);
+      setSize(nextState.size);
+      setSelectedPeriod(nextState.selectedPeriod);
+      setPage(nextState.page);
+
+      const url = buildUrlForState(nextState);
+      if (mode === 'push') {
+        window.history.pushState(nextState, '', url);
+      } else {
+        window.history.replaceState(nextState, '', url);
+      }
+    },
+    [],
+  );
 
   const fetchArchive = useCallback(async () => {
     setIsLoading(true);
@@ -90,35 +218,31 @@ export default function App() {
   const latestWar = wars[0];
 
   const handleQueryChange = (value: string) => {
-    setQuery(value);
-    setPage(1);
+    commitNavigation({ query: value, page: 1 }, 'replace');
   };
 
   const handleOutcomeChange = (value: OutcomeFilter) => {
-    setOutcome(value);
-    setPage(1);
+    commitNavigation({ outcome: value, page: 1 }, 'push');
   };
 
   const handleSizeChange = (value: string) => {
-    setSize(value);
-    setPage(1);
+    commitNavigation({ size: value, page: 1 }, 'push');
   };
 
   const handleSelectPeriod = (periodKey: string | null) => {
-    setSelectedPeriod(periodKey);
-    setPage(1);
+    commitNavigation({ selectedPeriod: periodKey, page: 1 }, 'push');
   };
 
   const handleResetFilters = () => {
-    setQuery('');
-    setOutcome('all');
-    setSize('all');
-    setSelectedPeriod(null);
-    setPage(1);
+    commitNavigation(
+      { query: '', outcome: 'all', size: 'all', selectedPeriod: null, page: 1 },
+      'push',
+    );
   };
 
   const handlePageChange = (nextPage: number) => {
-    setPage(nextPage);
+    if (nextPage === safePage) return;
+    commitNavigation({ page: nextPage }, 'push');
     listTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
