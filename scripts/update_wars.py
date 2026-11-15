@@ -111,27 +111,32 @@ def parse_alliance_info(html: str) -> dict:
     from bs4 import BeautifulSoup
 
     soup = BeautifulSoup(html, "html.parser")
-    container = soup.select_one(".alliance-info-subcontainer") or soup
 
     glory = "—"
-    glory_img = container.select_one(
-        '.glory-row .glory-value img[alt="Glory"], .glory-value img[alt="Glory"], img[alt="Glory"]'
-    )
-    if glory_img:
-        next_span = glory_img.find_next_sibling("span")
-        if next_span:
-            glory = next_span.get_text(" ", strip=True) or "—"
+    for candidate in soup.select(
+        '[data-tooltip="Glory"] .glory-value, .alliance-info-subcontainer .glory-row .glory-value, .glory-row .glory-value, .glory-value'
+    ):
+        next_span = candidate.select_one('img[alt="Glory"] + span')
+        val = (
+            next_span.get_text(" ", strip=True)
+            if next_span
+            else candidate.get_text(" ", strip=True)
+        ).strip()
+        if re.search(r"\d", val):
+            glory = val
+            break
     if glory == "—":
-        glory_val = container.select_one(".glory-row .glory-value, .glory-value")
-        if glory_val:
-            glory = glory_val.get_text(" ", strip=True) or "—"
+        for glory_img in soup.select('img[alt="Glory"]'):
+            next_span = glory_img.find_next_sibling("span")
+            if next_span:
+                val = next_span.get_text(" ", strip=True).strip()
+                if re.search(r"\d", val):
+                    glory = val
+                    break
 
     rank = "—"
-    rank_node = (
-        container.select_one(
-            '.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box'
-        )
-        or soup.select_one('.rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box')
+    rank_node = soup.select_one(
+        '.alliance-info-subcontainer .rank-box-with-diff .rank-box, [data-tooltip="Ranking"] .rank-box, .rank-box-with-diff .rank-box, .rank-box'
     )
     if rank_node:
         raw_rank = re.sub(r"\s+", "", rank_node.get_text("", strip=True))
@@ -139,7 +144,7 @@ def parse_alliance_info(html: str) -> dict:
             rank = normalize_rank(raw_rank if raw_rank.startswith("#") else f"#{raw_rank}")
 
     division = "—"
-    division_node = container.select_one(".division-rank") or soup.select_one(".division-rank")
+    division_node = soup.select_one(".alliance-info-subcontainer .division-rank, .division-rank")
     if division_node:
         spans = [
             span.get_text(" ", strip=True)
