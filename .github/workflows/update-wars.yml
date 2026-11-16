@@ -2,8 +2,9 @@ name: Refresh and Deploy Colombia Force Archive
 
 on:
   schedule:
-    # 07:17 a. m. hora Colombia (UTC-5) = 12:17 UTC todos los días
-    - cron: "17 12 * * *"
+    # 08:00 a. m. y 06:00 p. m. hora Colombia (UTC-5) = 13:00 UTC y 23:00 UTC
+    - cron: "0 13 * * *"
+    - cron: "0 23 * * *"
   push:
     branches: ["main", "master"]
   workflow_dispatch:
