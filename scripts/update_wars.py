@@ -47,9 +47,21 @@ def read_war(war, page: int) -> dict:
     if "COLOMBIA FORCE" not in (left["name"], right["name"]):
         raise ValueError("A war entry did not include COLOMBIA FORCE")
 
+    def read_star_text(node) -> str:
+        if not node:
+            return "—"
+        value = node.get_text(" ", strip=True)
+        return value if value else "—"
+
     stars = war.select(".war-stars")
-    left_stars = stars[0].get_text(" ", strip=True) if stars else "—"
-    right_stars = stars[1].get_text(" ", strip=True) if len(stars) > 1 else "—"
+    left_star_node = war.select_one(".war-stars.war-stars-left.no-wrap, .war-stars.war-stars-left") or (
+        stars[0] if stars else None
+    )
+    right_star_node = war.select_one(
+        ".war-stars.no-wrap:not(.war-stars-left), .war-stars:not(.war-stars-left)"
+    ) or (stars[1] if len(stars) > 1 else None)
+    left_stars = read_star_text(left_star_node)
+    right_stars = read_star_text(right_star_node)
     result_node = war.select_one(".war-glory-winner, .war-glory-loser")
     result = result_node.get_text(" ", strip=True) if result_node else "—"
 
