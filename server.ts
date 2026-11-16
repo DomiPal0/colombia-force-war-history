@@ -68,8 +68,18 @@ function parseDomiStatsHtml(html: string): WarEntry[] {
     }
 
     const starNodes = warEl.find('.war-stars');
-    let leftStars = normalizeText(starNodes.eq(0).text());
-    let rightStars = normalizeText(starNodes.eq(1).text());
+    const leftStarNode = warEl
+      .find('.war-stars.war-stars-left.no-wrap, .war-stars.war-stars-left')
+      .first();
+    const rightStarNode = warEl
+      .find('.war-stars.no-wrap:not(.war-stars-left), .war-stars:not(.war-stars-left)')
+      .first();
+    let leftStars = normalizeText(
+      (leftStarNode.length ? leftStarNode : starNodes.eq(0)).text(),
+    );
+    let rightStars = normalizeText(
+      (rightStarNode.length ? rightStarNode : starNodes.eq(1)).text(),
+    );
     let result = normalizeText(warEl.find('.war-glory-winner, .war-glory-loser').first().text());
 
     if (left.name !== 'COLOMBIA FORCE') {
@@ -294,23 +304,23 @@ async function refreshFromDomiStats(): Promise<WarsSnapshot & { added: number; u
 function scheduleDailyRefresh() {
   const scheduleNext = () => {
     const now = new Date();
-    // 07:17 a. m. Colombia (UTC-5) = 12:17 UTC
-    const nextRun = new Date(
-      Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 12, 17, 0, 0),
-    );
-    if (nextRun.getTime() <= now.getTime()) {
-      nextRun.setUTCDate(nextRun.getUTCDate() + 1);
-    }
+    // 08:00 a. m. Colombia (UTC-5) = 13:00 UTC | 06:00 p. m. Colombia (UTC-5) = 23:00 UTC
+    const candidates = [
+      new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 13, 0, 0, 0)),
+      new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 23, 0, 0, 0)),
+      new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 13, 0, 0, 0)),
+    ];
+    const nextRun = candidates.find((candidate) => candidate.getTime() > now.getTime())!;
     const delayMs = nextRun.getTime() - now.getTime();
     setTimeout(async () => {
       try {
         const result = await refreshFromDomiStats();
         console.log(
-          `[Daily Sync 07:17 COT] ${result.wars.length} guerras totales (+${result.added} nuevas).`,
+          `[Daily Sync COT] ${result.wars.length} guerras totales (+${result.added} nuevas).`,
         );
       } catch (err) {
         console.warn(
-          '[Daily Sync 07:17 COT] Se conservó data/wars.json:',
+          '[Daily Sync COT] Se conservó data/wars.json:',
           err instanceof Error ? err.message : err,
         );
       } finally {

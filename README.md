@@ -14,4 +14,4 @@ Archivo público de guerras de la alianza **COLOMBIA FORCE** con 800+ enfrentami
 
 ## Actualización automática diaria
 
-El flujo `.github/workflows/update-wars.yml` se ejecuta todos los días a las **07:17 a. m. hora Colombia** (`12:17 UTC`), consulta `https://domistats.com/alliance_wars/68105?page=1` mediante `scripts/update_wars.py`, actualiza `data/wars.json`, vuelve a compilar el sitio y republica la página automáticamente.
+El flujo `.github/workflows/update-wars.yml` se ejecuta todos los días a las **08:00 a. m. y 06:00 p. m. hora Colombia** (`13:00 UTC` y `23:00 UTC`), consulta `https://domistats.com/alliance_wars/68105?page=1` y `https://domistats.com/alliance/68105` mediante `scripts/update_wars.py`, actualiza `data/wars.json`, vuelve a compilar el sitio y republica la página automáticamente.
