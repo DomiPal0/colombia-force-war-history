@@ -2,17 +2,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ALLIANCE_ID = "68105"
-URL = f"https://domistats.com/alliance_wars/{ALLIANCE_ID}"
-ALLIANCE_URL = f"https://domistats.com/alliance/{ALLIANCE_ID}"
-API_ALLIANCE_WARS_URL = f"https://domistats.com/public-api/v1/alliance_wars/{ALLIANCE_ID}"
-API_ALLIANCE_URL = f"https://domistats.com/public-api/v1/alliance/{ALLIANCE_ID}"
+URL = "https://domistats.com/alliance_wars/68105"
+ALLIANCE_URL = "https://domistats.com/alliance/68105"
 SOURCE_PAGE_COUNT = 1
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; scheduled public-page reader)",
@@ -25,64 +21,12 @@ def text(node, selector: str, default: str = "—") -> str:
     return found.get_text(" ", strip=True) if found else default
 
 
-def normalize_rank(raw: object) -> str:
-    value = str(raw or "").strip()
+def normalize_rank(raw: str) -> str:
+    value = (raw or "").strip()
     if not value or value == "—":
         return "—"
-    match = re.match(r"^#?\s*(\d+)$", value)
+    match = re.match(r"^#\s*(\d+)$", value)
     return f"#{match.group(1)}" if match else value
-
-
-def format_glory(raw: object) -> str:
-    if raw is None or raw == "" or raw == "—":
-        return "—"
-    if isinstance(raw, (int, float)):
-        return f"{int(raw):,}"
-    cleaned = str(raw).replace(",", "").strip()
-    if cleaned.isdigit():
-        return f"{int(cleaned):,}"
-    return str(raw).strip() or "—"
-
-
-def format_division(league: object, league_ranking: object) -> str:
-    league_str = str(league or "").strip()
-    rank_str = normalize_rank(league_ranking)
-    if league_str and rank_str != "—":
-        return f"{league_str} {rank_str}"
-    return league_str or rank_str
-
-
-def format_war_size(raw: object) -> str:
-    if raw is None or raw == "" or raw == 0 or raw == "—":
-        return "—"
-    if isinstance(raw, (int, float)):
-        n = int(raw)
-        return f"{n} v {n}" if n > 0 else "—"
-    val = str(raw).strip()
-    if val.isdigit():
-        n = int(val)
-        return f"{n} v {n}" if n > 0 else "—"
-    return val or "—"
-
-
-def format_api_date(raw_time: object) -> str:
-    if raw_time is None or raw_time == "":
-        return ""
-    if isinstance(raw_time, (int, float)):
-        ts = float(raw_time)
-        if ts > 1e12:
-            ts /= 1000.0
-        return datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y/%m/%d")
-    text_val = str(raw_time).strip()
-    if re.match(r"^\d{4}/\d{2}/\d{2}$", text_val):
-        return text_val
-    if re.match(r"^\d{4}-\d{2}-\d{2}", text_val):
-        return text_val[:10].replace("-", "/")
-    try:
-        dt = datetime.fromisoformat(text_val.replace("Z", "+00:00"))
-        return dt.astimezone(timezone.utc).strftime("%Y/%m/%d")
-    except ValueError:
-        return text_val
 
 
 def read_side(war, side_name: str) -> dict:
@@ -167,17 +111,7 @@ def fetch_wars() -> list[dict]:
             raise RuntimeError(
                 f"No war entries found on page {page}; preserving the existing snapshot."
             )
-        page_wars = [read_war(war, page) for war in entries]
-        if page == 1 and page_wars:
-            latest = page_wars[0]
-            print(
-                f"Page 1 latest war: {latest['title']} | date={latest['date']} | "
-                f"stars={latest['stars']} | size={latest['size']} | "
-                f"cf-cache={response.headers.get('cf-cache-status', 'n/a')}"
-            )
-            if latest["stars"] == ["—", "—"]:
-                print("Center HTML:", entries[0].select_one(".war-glory-center"))
-        collected.extend(page_wars)
+        collected.extend(read_war(war, page) for war in entries)
 
     if not collected:
         raise RuntimeError(
@@ -250,133 +184,6 @@ def fetch_alliance_info() -> dict:
     response = session.get(ALLIANCE_URL, timeout=45)
     response.raise_for_status()
     return parse_alliance_info(response.text)
-
-
-def read_api_star(raw: dict, *keys: str) -> str:
-    for key in keys:
-        val = raw.get(key)
-        if val is not None and str(val).strip() not in ("", "—", "None"):
-            return str(val).strip()
-    return "—"
-
-
-def fetch_wars_via_api(api_key: str) -> list[dict]:
-    import requests
-
-    response = requests.get(
-        API_ALLIANCE_WARS_URL,
-        params={"page": 1, "page_size": 25},
-        headers={**HEADERS, "X-API-Key": api_key},
-        timeout=45,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    if not payload.get("success", True):
-        raise RuntimeError(f"DomiStats API error: {payload.get('error_code') or payload.get('error')}")
-
-    raw_wars = payload.get("wars") or []
-    if not raw_wars:
-        raise RuntimeError("DomiStats API returned no wars.")
-
-    print("API wars[0] keys:", sorted(raw_wars[0].keys()))
-    print(
-        "API wars[0] stars_diff:",
-        raw_wars[0].get("left_stars_diff"),
-        raw_wars[0].get("right_stars_diff"),
-    )
-
-    parsed: list[dict] = []
-    for item in raw_wars:
-        left_name = str(item.get("left_name") or "—").strip()
-        right_name = str(item.get("right_name") or "—").strip()
-        if "COLOMBIA FORCE" not in (left_name, right_name):
-            continue
-
-        left = {
-            "name": left_name,
-            "rank": normalize_rank(item.get("left_ranking")),
-            "glory": format_glory(item.get("left_glory")),
-            "division": format_division(item.get("left_league"), item.get("left_league_ranking")),
-        }
-        right = {
-            "name": right_name,
-            "rank": normalize_rank(item.get("right_ranking")),
-            "glory": format_glory(item.get("right_glory")),
-            "division": format_division(item.get("right_league"), item.get("right_league_ranking")),
-        }
-
-        left_stars = read_api_star(item, "left_stars", "stars_left")
-        right_stars = read_api_star(item, "right_stars", "stars_right")
-
-        raw_diff = item.get("glory_diff")
-        result = "—"
-        if raw_diff is not None and str(raw_diff).strip() not in ("", "—"):
-            try:
-                diff_num = int(str(raw_diff).replace(",", "").strip())
-                result = str(diff_num)
-            except ValueError:
-                result = str(raw_diff).strip()
-
-        if left["name"] != "COLOMBIA FORCE":
-            left, right = right, left
-            left_stars, right_stars = right_stars, left_stars
-            if result != "—":
-                try:
-                    result = str(-int(result.replace(",", "")))
-                except ValueError:
-                    pass
-
-        notes: list[str] = []
-        if item.get("is_close_war"):
-            notes.append("Close War")
-        if item.get("is_time_war"):
-            notes.append("Time War")
-
-        parsed.append(
-            {
-                "page": 1,
-                "title": f"{left['name']} vs {right['name']}",
-                "date": format_api_date(item.get("time")),
-                "left": left,
-                "right": right,
-                "result": result,
-                "stars": [left_stars, right_stars],
-                "size": format_war_size(item.get("war_size")),
-                "notes": ", ".join(notes) if notes else "—",
-            }
-        )
-
-    if not parsed:
-        raise RuntimeError("No COLOMBIA FORCE wars found in API response.")
-
-    latest = parsed[0]
-    print(
-        f"API latest war: {latest['title']} | date={latest['date']} | "
-        f"stars={latest['stars']} | size={latest['size']} | result={latest['result']}"
-    )
-    return parsed
-
-
-def fetch_alliance_via_api(api_key: str) -> dict:
-    import requests
-
-    response = requests.get(
-        API_ALLIANCE_URL,
-        headers={**HEADERS, "X-API-Key": api_key},
-        timeout=45,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    if not payload.get("success", True):
-        raise RuntimeError(f"DomiStats API error: {payload.get('error_code') or payload.get('error')}")
-
-    alliance = payload.get("alliance") if isinstance(payload.get("alliance"), dict) else payload
-    glory = format_glory(alliance.get("glory"))
-    rank = normalize_rank(alliance.get("ranking"))
-    division = format_division(alliance.get("league"), alliance.get("league_ranking"))
-    if glory == "—" and rank == "—" and division == "—":
-        raise RuntimeError("Could not parse alliance overview fields from DomiStats API.")
-    return {"glory": glory, "rank": rank, "division": division}
 
 
 def war_key(war: dict) -> tuple[str, str, str]:
@@ -454,38 +261,14 @@ def main() -> None:
 
     existing = json.loads((ROOT / "data" / "wars.json").read_text(encoding="utf-8"))
     alliance_info = existing.get("alliance")
-    api_key = os.environ.get("DOMISTATS_API_KEY", "").strip()
-
     if args.from_cache:
         wars = merge_history([], existing["wars"])
         updated_at = existing["updated_at"]
     else:
-        recent_wars: list[dict] | None = None
-        if api_key:
-            try:
-                recent_wars = fetch_wars_via_api(api_key)
-                print("Fetched recent wars via DomiStats Public API.")
-            except Exception as exc:
-                print(f"Warning: DomiStats API wars fetch failed, falling back to HTML: {exc}")
-        if recent_wars is None:
-            recent_wars = fetch_wars()
-
+        recent_wars = fetch_wars()
         wars = merge_history(recent_wars, existing["wars"])
-
-        fetched_alliance: dict | None = None
-        if api_key:
-            try:
-                fetched_alliance = fetch_alliance_via_api(api_key)
-                print("Fetched alliance overview via DomiStats Public API.")
-            except Exception as exc:
-                print(f"Warning: DomiStats API alliance fetch failed, falling back to HTML: {exc}")
-        if fetched_alliance is None:
-            try:
-                fetched_alliance = fetch_alliance_info()
-            except Exception as exc:
-                print(f"Warning: could not refresh alliance overview from {ALLIANCE_URL}: {exc}")
-
-        if fetched_alliance:
+        try:
+            fetched_alliance = fetch_alliance_info()
             if alliance_info:
                 alliance_info = {
                     "glory": fetched_alliance["glory"] if fetched_alliance.get("glory") not in (None, "", "—") else alliance_info.get("glory", "—"),
@@ -494,7 +277,8 @@ def main() -> None:
                 }
             else:
                 alliance_info = fetched_alliance
-
+        except Exception as exc:
+            print(f"Warning: could not refresh alliance overview from {ALLIANCE_URL}: {exc}")
         updated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     write_snapshot(wars, updated_at, alliance_info)
