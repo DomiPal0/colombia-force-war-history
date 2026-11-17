@@ -279,6 +279,11 @@ def fetch_wars_via_api(api_key: str) -> list[dict]:
         raise RuntimeError("DomiStats API returned no wars.")
 
     print("API wars[0] keys:", sorted(raw_wars[0].keys()))
+    print(
+        "API wars[0] stars_diff:",
+        raw_wars[0].get("left_stars_diff"),
+        raw_wars[0].get("right_stars_diff"),
+    )
 
     parsed: list[dict] = []
     for item in raw_wars:
