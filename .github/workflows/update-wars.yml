@@ -2,7 +2,7 @@ name: Refresh and Deploy Colombia Force Archive
 
 on:
   schedule:
-    # 08:00 a. m. y 06:00 p. m. hora Colombia (UTC-5) = 13:00 UTC y 23:00 UTC
+    # 08:11 a. m. y 06:11 p. m. hora Colombia (UTC-5) = 13:00 UTC y 23:00 UTC
     - cron: "11 13 * * *"
     - cron: "11 23 * * *"
   push:
