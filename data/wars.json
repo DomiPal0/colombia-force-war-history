@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-17 03:39 UTC",
+  "updated_at": "2026-11-17 04:12 UTC",
   "refresh_pages": 1,
   "alliance": {
     "glory": "21,343",
     "rank": "#90",
-    "division": "2 #6"
+    "division": "Triumphant #90"
   },
   "wars": [
     {
@@ -15,13 +15,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#94",
         "glory": "21,491",
-        "division": "2 #8"
+        "division": "Triumphant #94"
       },
       "right": {
         "name": "The Spearhead",
         "rank": "#151",
         "glory": "19,502",
-        "division": "2 #14"
+        "division": "Iconic #20"
       },
       "result": "280",
       "stars": [
@@ -39,13 +39,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#100",
         "glory": "21,211",
-        "division": "2 #9"
+        "division": "Triumphant #100"
       },
       "right": {
         "name": "Viking Guards",
         "rank": "#230",
         "glory": "18,109",
-        "division": "2 #26"
+        "division": "Iconic #103"
       },
       "result": "150",
       "stars": [
@@ -63,13 +63,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#104",
         "glory": "21,061",
-        "division": "2 #11"
+        "division": "Triumphant #104"
       },
       "right": {
         "name": "HAI ROMANIA",
         "rank": "#228",
         "glory": "18,118",
-        "division": "4 #33"
+        "division": "Iconic #101"
       },
       "result": "154",
       "stars": [
@@ -87,13 +87,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#90",
         "glory": "20,907",
-        "division": "2 #8"
+        "division": "Triumphant #90"
       },
       "right": {
         "name": "Open to ESH",
         "rank": "#180",
         "glory": "19,428",
-        "division": "1 #63"
+        "division": "Iconic #51"
       },
       "result": "-254",
       "stars": [
@@ -111,13 +111,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#95",
         "glory": "21,161",
-        "division": "2 #9"
+        "division": "Triumphant #95"
       },
       "right": {
         "name": "ARMADA IBÉRICA",
         "rank": "#197",
         "glory": "18,391",
-        "division": "1 #67"
+        "division": "Iconic #68"
       },
       "result": "159",
       "stars": [
@@ -135,13 +135,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#83",
         "glory": "21,002",
-        "division": "2 #7"
+        "division": "Triumphant #94"
       },
       "right": {
         "name": "F8tal",
         "rank": "#106",
         "glory": "21,061",
-        "division": "1 #38"
+        "division": "Triumphant #89"
       },
       "result": "-179",
       "stars": [
@@ -159,13 +159,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#92",
         "glory": "21,181",
-        "division": "2 #8"
+        "division": "Triumphant"
       },
       "right": {
         "name": "1st Poland",
         "rank": "#120",
         "glory": "20,198",
-        "division": "1 #47"
+        "division": "Triumphant"
       },
       "result": "231",
       "stars": [
@@ -183,13 +183,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#82",
         "glory": "20,950",
-        "division": "2 #7"
+        "division": "Triumphant"
       },
       "right": {
         "name": "Valhalla Exiles",
         "rank": "#72",
         "glory": "21,611",
-        "division": "1 #29"
+        "division": "Triumphant"
       },
       "result": "-156",
       "stars": [
@@ -207,13 +207,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#58",
         "glory": "21,106",
-        "division": "2 #7"
+        "division": "Triumphant"
       },
       "right": {
         "name": "LaHorDa",
         "rank": "#195",
         "glory": "18,323",
-        "division": "1 #70"
+        "division": "Iconic"
       },
       "result": "-282",
       "stars": [
@@ -221,7 +221,7 @@
         "75"
       ],
       "size": "15 v 15",
-      "notes": "Close War, Time War"
+      "notes": "Time War"
     },
     {
       "page": 1,
@@ -231,13 +231,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#65",
         "glory": "21,388",
-        "division": "2 #7"
+        "division": "Triumphant"
       },
       "right": {
         "name": "1st Poland",
         "rank": "#131",
         "glory": "19,989",
-        "division": "1 #51"
+        "division": "Iconic"
       },
       "result": "211",
       "stars": [
@@ -255,13 +255,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#72",
         "glory": "21,177",
-        "division": "2 #7"
+        "division": "Triumphant"
       },
       "right": {
         "name": "ほのぼのうさぴょん",
         "rank": "#307",
         "glory": "16,530",
-        "division": "1 #90"
+        "division": "Iconic"
       },
       "result": "122",
       "stars": [
@@ -279,13 +279,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#56",
         "glory": "21,055",
-        "division": "2 #3"
+        "division": "Triumphant"
       },
       "right": {
         "name": "EasyPeasy",
         "rank": "#5",
         "glory": "22,708",
-        "division": "1 #3"
+        "division": "Triumphant"
       },
       "result": "-106",
       "stars": [
@@ -303,13 +303,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#35",
         "glory": "21,161",
-        "division": "2 #2"
+        "division": "Triumphant"
       },
       "right": {
         "name": "1st Poland",
         "rank": "#134",
         "glory": "20,381",
-        "division": "1 #52"
+        "division": "Iconic"
       },
       "result": "-218",
       "stars": [
@@ -327,13 +327,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#45",
         "glory": "21,379",
-        "division": "2 #2"
+        "division": "Triumphant"
       },
       "right": {
         "name": "Portugal Elite",
         "rank": "#127",
         "glory": "20,106",
-        "division": "1 #49"
+        "division": "Triumphant"
       },
       "result": "347",
       "stars": [
@@ -351,13 +351,13 @@
         "name": "COLOMBIA FORCE",
         "rank": "#47",
         "glory": "21,032",
-        "division": "2 #5"
+        "division": "Triumphant"
       },
       "right": {
         "name": "Hunters BR",
         "rank": "#270",
         "glory": "16,644",
-        "division": "5 #35"
+        "division": "Iconic"
       },
       "result": "125",
       "stars": [
