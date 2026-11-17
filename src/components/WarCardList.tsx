@@ -1,5 +1,7 @@
-import { ChevronLeft, ChevronRight, Star, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Check, ChevronLeft, ChevronRight, Pencil, Star, X } from 'lucide-react';
 import type { WarEntry } from '../types/war';
+import { isEditableNewWar, WAR_SIZE_OPTIONS } from '../utils/githubEditor';
 import {
   formatPeriodLabel,
   formatSigned,
@@ -17,6 +19,17 @@ interface WarCardListProps {
   onClearPeriod: () => void;
   onPageChange: (nextPage: number) => void;
   onResetFilters: () => void;
+  isEditorUnlocked?: boolean;
+  latestWarDate?: string;
+  onSaveWarDetails?: (
+    war: WarEntry,
+    stars: [string, string],
+    size: string,
+  ) => Promise<void>;
+}
+
+function getWarDomKey(war: WarEntry): string {
+  return `${war.date}-${war.left.name}-${war.right.name}`;
 }
 
 export function WarCardList({
@@ -29,7 +42,76 @@ export function WarCardList({
   onClearPeriod,
   onPageChange,
   onResetFilters,
+  isEditorUnlocked = false,
+  latestWarDate,
+  onSaveWarDetails,
 }: WarCardListProps) {
+  const [editingKey, setEditingKey] = useState<string | null>(null);
+  const [draftLeftStars, setDraftLeftStars] = useState<string>('');
+  const [draftRightStars, setDraftRightStars] = useState<string>('');
+  const [draftSize, setDraftSize] = useState<string>('');
+  const [isSaving, setIsSaving] = useState<boolean>(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [savedNoticeKey, setSavedNoticeKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isEditorUnlocked) {
+      setEditingKey(null);
+      setSaveError(null);
+    }
+  }, [isEditorUnlocked]);
+
+  useEffect(() => {
+    if (!savedNoticeKey) return;
+    const timer = window.setTimeout(() => setSavedNoticeKey(null), 4000);
+    return () => window.clearTimeout(timer);
+  }, [savedNoticeKey]);
+
+  const startEditing = (war: WarEntry) => {
+    const key = getWarDomKey(war);
+    setEditingKey(key);
+    setDraftLeftStars(war.stars[0] && war.stars[0] !== '—' ? war.stars[0] : '');
+    setDraftRightStars(war.stars[1] && war.stars[1] !== '—' ? war.stars[1] : '');
+    setDraftSize(
+      WAR_SIZE_OPTIONS.includes(war.size as (typeof WAR_SIZE_OPTIONS)[number])
+        ? war.size
+        : '',
+    );
+    setSaveError(null);
+  };
+
+  const cancelEditing = () => {
+    if (isSaving) return;
+    setEditingKey(null);
+    setSaveError(null);
+  };
+
+  const handleSave = async (war: WarEntry) => {
+    if (!onSaveWarDetails || isSaving) return;
+    const key = getWarDomKey(war);
+    const nextStars: [string, string] = [
+      draftLeftStars.trim() || '—',
+      draftRightStars.trim() || '—',
+    ];
+    const nextSize = draftSize.trim() || '—';
+
+    setIsSaving(true);
+    setSaveError(null);
+    try {
+      await onSaveWarDetails(war, nextStars, nextSize);
+      setEditingKey(null);
+      setSavedNoticeKey(key);
+    } catch (err) {
+      setSaveError(
+        err instanceof Error
+          ? err.message
+          : 'No se pudieron guardar los cambios.',
+      );
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   return (
     <div className="mt-4">
       <div
@@ -101,6 +183,14 @@ export function WarCardList({
       ) : (
         <section aria-label="Listado de guerras" className="grid gap-3">
           {wars.map((war) => {
+            const key = getWarDomKey(war);
+            const canEdit = Boolean(
+              isEditorUnlocked &&
+                onSaveWarDetails &&
+                isEditableNewWar(war, latestWarDate),
+            );
+            const isEditing = canEdit && editingKey === key;
+
             const resNum = parseResultNumber(war.result);
             const resultTone =
               resNum === null ? 'none' : resNum > 0 ? 'win' : 'loss';
@@ -121,7 +211,7 @@ export function WarCardList({
 
             return (
               <article
-                key={`${war.date}-${war.left.name}-${war.right.name}`}
+                key={key}
                 className="grid grid-cols-1 items-start gap-4 rounded-xl border-2 border-[#334b66] bg-gradient-to-r from-[#122033] via-[#0f1b2b] to-[#122033] px-4 py-4 transition hover:border-[#5b7fa6] md:grid-cols-[minmax(0,1fr)_196px_minmax(0,1fr)] md:px-5"
               >
                 {/* Lado Izquierdo: COLOMBIA FORCE */}
@@ -141,12 +231,29 @@ export function WarCardList({
                     · División:{' '}
                     <span className="font-semibold text-slate-200">{war.left.division}</span>
                   </p>
-                  {(war.size !== '—' || extraNotes.length > 0) && (
+                  {(isEditing || war.size !== '—' || extraNotes.length > 0) && (
                     <div className="mt-2.5 flex flex-wrap items-center gap-2">
-                      {war.size !== '—' && (
-                        <span className="rounded-md border border-[#3d5775] bg-[#0c1624] px-2 py-0.5 font-mono text-[11px] font-semibold text-slate-200">
-                          {war.size}
-                        </span>
+                      {isEditing ? (
+                        <select
+                          aria-label="Tamaño de guerra"
+                          value={draftSize}
+                          onChange={(e) => setDraftSize(e.target.value)}
+                          disabled={isSaving}
+                          className="rounded-lg border-2 border-[#3b5573] bg-[#101c2d] px-2.5 py-1 font-mono text-xs font-semibold text-white transition focus:border-[#c6f36b] focus:outline-none disabled:opacity-60"
+                        >
+                          <option value="">Tamaño…</option>
+                          {WAR_SIZE_OPTIONS.map((optionSize) => (
+                            <option key={optionSize} value={optionSize}>
+                              {optionSize}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        war.size !== '—' && (
+                          <span className="rounded-md border border-[#3d5775] bg-[#0c1624] px-2 py-0.5 font-mono text-[11px] font-semibold text-slate-200">
+                            {war.size}
+                          </span>
+                        )
                       )}
                       {extraNotes.map((note) => {
                         const isClose = note.toLowerCase().includes('close');
@@ -176,14 +283,57 @@ export function WarCardList({
                     {war.date}
                   </time>
 
-                  <div className="mt-1 flex items-center justify-center gap-2 font-mono text-2xl font-extrabold leading-none text-slate-100 tabular-nums sm:text-[26px]">
-                    <span>{formatStars(war.stars[0])}</span>
-                    <Star
-                      className="h-5 w-5 shrink-0 fill-yellow-400 text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.35)] sm:h-6 sm:w-6"
-                      aria-hidden="true"
-                    />
-                    <span>{formatStars(war.stars[1])}</span>
-                  </div>
+                  {isEditing ? (
+                    <div className="mt-1.5 flex items-center justify-center gap-2">
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        maxLength={3}
+                        value={draftLeftStars}
+                        onChange={(e) =>
+                          setDraftLeftStars(e.target.value.replace(/[^\d]/g, '').slice(0, 3))
+                        }
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') handleSave(war);
+                          if (e.key === 'Escape') cancelEditing();
+                        }}
+                        disabled={isSaving}
+                        placeholder="—"
+                        aria-label={`Estrellas de ${war.left.name}`}
+                        className="w-14 rounded-lg border-2 border-[#3b5573] bg-[#101c2d] px-1.5 py-1 text-center font-mono text-base font-bold text-white placeholder:text-slate-500 transition focus:border-[#c6f36b] focus:outline-none disabled:opacity-60"
+                      />
+                      <Star
+                        className="h-5 w-5 shrink-0 fill-yellow-400 text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.35)] sm:h-6 sm:w-6"
+                        aria-hidden="true"
+                      />
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        maxLength={3}
+                        value={draftRightStars}
+                        onChange={(e) =>
+                          setDraftRightStars(e.target.value.replace(/[^\d]/g, '').slice(0, 3))
+                        }
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') handleSave(war);
+                          if (e.key === 'Escape') cancelEditing();
+                        }}
+                        disabled={isSaving}
+                        placeholder="—"
+                        aria-label={`Estrellas de ${war.right.name}`}
+                        className="w-14 rounded-lg border-2 border-[#3b5573] bg-[#101c2d] px-1.5 py-1 text-center font-mono text-base font-bold text-white placeholder:text-slate-500 transition focus:border-[#c6f36b] focus:outline-none disabled:opacity-60"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mt-1 flex items-center justify-center gap-2 font-mono text-2xl font-extrabold leading-none text-slate-100 tabular-nums sm:text-[26px]">
+                      <span>{formatStars(war.stars[0])}</span>
+                      <Star
+                        className="h-5 w-5 shrink-0 fill-yellow-400 text-yellow-400 drop-shadow-[0_0_6px_rgba(250,204,21,0.35)] sm:h-6 sm:w-6"
+                        aria-hidden="true"
+                      />
+                      <span>{formatStars(war.stars[1])}</span>
+                    </div>
+                  )}
 
                   <div
                     className={`mt-2 font-display text-lg font-extrabold uppercase tracking-wide tabular-nums sm:text-base ${
@@ -196,6 +346,56 @@ export function WarCardList({
                   >
                     {resultLabel}
                   </div>
+
+                  {canEdit && (
+                    <div className="mt-2 flex flex-col items-center gap-1.5">
+                      {isEditing ? (
+                        <>
+                          <div className="flex items-center gap-1.5">
+                            <button
+                              type="button"
+                              onClick={() => handleSave(war)}
+                              disabled={isSaving}
+                              className="inline-flex items-center gap-1 rounded-md border border-[#c6f36b] bg-[#c6f36b] px-2.5 py-1 text-[11px] font-bold text-[#111c08] transition hover:bg-[#d9f99d] disabled:opacity-60"
+                            >
+                              <Check className="h-3 w-3" />
+                              <span>{isSaving ? 'Guardando…' : 'Guardar'}</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={cancelEditing}
+                              disabled={isSaving}
+                              className="inline-flex items-center gap-1 rounded-md border border-[#3b5573] bg-[#101c2d] px-2 py-1 text-[11px] font-semibold text-slate-300 transition hover:border-slate-400 hover:text-white disabled:opacity-60"
+                            >
+                              <X className="h-3 w-3" />
+                              <span>Cancelar</span>
+                            </button>
+                          </div>
+                          {saveError && (
+                            <p className="max-w-[180px] text-[11px] leading-tight text-rose-300">
+                              {saveError}
+                            </p>
+                          )}
+                        </>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => startEditing(war)}
+                            className="inline-flex items-center gap-1 rounded-md border border-[#3b5573] bg-[#101c2d] px-2 py-0.5 text-[11px] font-semibold text-slate-300 transition hover:border-[#c6f36b] hover:text-[#c6f36b]"
+                          >
+                            <Pencil className="h-3 w-3" />
+                            <span>Editar</span>
+                          </button>
+                          {savedNoticeKey === key && (
+                            <span className="text-[11px] font-semibold text-[#c6f36b]">
+                              Guardado
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Lado Derecho: Rival alineado exactamente a la misma altura */}
