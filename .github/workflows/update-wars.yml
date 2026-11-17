@@ -39,8 +39,6 @@ jobs:
 
       - name: Fetch latest wars from DomiStats (page 1)
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-        env:
-          DOMISTATS_API_KEY: ${{ secrets.DOMISTATS_API_KEY }}
         run: python scripts/update_wars.py
 
       - name: Commit updated war database if changed
