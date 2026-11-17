@@ -249,11 +249,16 @@ function formatUtcTimestamp(date: Date): string {
 }
 
 async function refreshFromDomiStats(): Promise<WarsSnapshot & { added: number; updated: number }> {
+  const fetchHeaders = {
+    'User-Agent':
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9,es;q=0.8',
+    'Cache-Control': 'no-cache',
+    Pragma: 'no-cache',
+  };
   const response = await fetch(DOMISTATS_URL, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; live-sync)',
-      Accept: 'text/html,application/xhtml+xml',
-    },
+    headers: fetchHeaders,
     signal: AbortSignal.timeout(20000),
   });
   if (!response.ok) {
@@ -268,10 +273,7 @@ async function refreshFromDomiStats(): Promise<WarsSnapshot & { added: number; u
   let alliance: AllianceOverview | undefined = current.alliance;
   try {
     const allianceResp = await fetch(DOMISTATS_ALLIANCE_URL, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; live-sync)',
-        Accept: 'text/html,application/xhtml+xml',
-      },
+      headers: fetchHeaders,
       signal: AbortSignal.timeout(20000),
     });
     if (allianceResp.ok) {
