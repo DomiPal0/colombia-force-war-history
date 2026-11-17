@@ -11,7 +11,15 @@ URL = "https://domistats.com/alliance_wars/68105"
 ALLIANCE_URL = "https://domistats.com/alliance/68105"
 SOURCE_PAGE_COUNT = 1
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; ColombiaForceWarArchive/1.0; scheduled public-page reader)"
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/131.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9,es;q=0.8",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache",
 }
 
 
@@ -110,7 +118,15 @@ def fetch_wars() -> list[dict]:
             raise RuntimeError(
                 f"No war entries found on page {page}; preserving the existing snapshot."
             )
-        collected.extend(read_war(war, page) for war in entries)
+        page_wars = [read_war(war, page) for war in entries]
+        if page == 1 and page_wars:
+            latest = page_wars[0]
+            print(
+                f"Page 1 latest war: {latest['title']} | date={latest['date']} | "
+                f"stars={latest['stars']} | size={latest['size']} | "
+                f"cf-cache={response.headers.get('cf-cache-status', 'n/a')}"
+            )
+        collected.extend(page_wars)
 
     if not collected:
         raise RuntimeError(
