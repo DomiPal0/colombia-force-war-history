@@ -1,11 +1,20 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Lock } from 'lucide-react';
 import { AllianceHeader } from './components/AllianceHeader';
+import { EditorAuthModal } from './components/EditorAuthModal';
 import { MetricsOverview } from './components/MetricsOverview';
 import { WarCardList } from './components/WarCardList';
 import { WarFilters } from './components/WarFilters';
 import { WinLossChart } from './components/WinLossChart';
 import fallbackSnapshot from '../data/wars.json';
 import type { AllianceOverview, OutcomeFilter, WarEntry, WarsSnapshot } from './types/war';
+import {
+  clearEditorConfig,
+  loadEditorConfig,
+  saveEditorConfig,
+  saveWarEditsToGitHub,
+  type EditorConfig,
+} from './utils/githubEditor';
 import { computeSummaryStats, matchesWarFilters } from './utils/warUtils';
 
 const PAGE_SIZE = 25;
@@ -82,6 +91,10 @@ export default function App() {
     initialNav.selectedPeriod,
   );
   const [page, setPage] = useState<number>(initialNav.page);
+  const [editorConfig, setEditorConfig] = useState<EditorConfig | null>(() =>
+    loadEditorConfig(),
+  );
+  const [isEditorModalOpen, setIsEditorModalOpen] = useState<boolean>(false);
 
   const listTopRef = useRef<HTMLDivElement>(null);
   const navStateRef = useRef<NavigationState>(initialNav);
@@ -249,6 +262,44 @@ export default function App() {
     listTopRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const handleSaveEditorConfig = useCallback((config: EditorConfig) => {
+    saveEditorConfig(config);
+    setEditorConfig(config);
+  }, []);
+
+  const handleClearEditorConfig = useCallback(() => {
+    clearEditorConfig();
+    setEditorConfig(null);
+  }, []);
+
+  const handleSaveWarDetails = useCallback(
+    async (targetWar: WarEntry, stars: [string, string], nextSize: string) => {
+      if (!editorConfig?.token) {
+        setIsEditorModalOpen(true);
+        throw new Error('Activa el modo editor primero.');
+      }
+
+      const { war: updatedWar } = await saveWarEditsToGitHub({
+        token: editorConfig.token,
+        repo: editorConfig.repo,
+        war: targetWar,
+        stars,
+        size: nextSize,
+      });
+
+      setWars((prev) =>
+        prev.map((item) =>
+          item.date === targetWar.date &&
+          item.left.name === targetWar.left.name &&
+          item.right.name === targetWar.right.name
+            ? updatedWar
+            : item,
+        ),
+      );
+    },
+    [editorConfig],
+  );
+
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_78%_-10%,rgba(33,55,84,0.48)_0%,transparent_48%)] bg-[#0a111d]">
       <main className="mx-auto max-w-[1320px] px-4 py-7 sm:px-7 sm:py-9">
@@ -315,6 +366,9 @@ export default function App() {
               onClearPeriod={() => handleSelectPeriod(null)}
               onPageChange={handlePageChange}
               onResetFilters={handleResetFilters}
+              isEditorUnlocked={Boolean(editorConfig?.token)}
+              latestWarDate={latestWar?.date}
+              onSaveWarDetails={handleSaveWarDetails}
             />
           </>
         )}
@@ -332,13 +386,36 @@ export default function App() {
             </a>
             .
           </span>
-          {updatedAt && (
-            <span className="font-mono text-[11px] text-slate-400 tabular-nums">
-              Última sincronización: {updatedAt}
-            </span>
-          )}
+          <div className="flex flex-wrap items-center gap-3">
+            {updatedAt && (
+              <span className="font-mono text-[11px] text-slate-400 tabular-nums">
+                Última sincronización: {updatedAt}
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={() => setIsEditorModalOpen(true)}
+              title="Configurar acceso para editar guerras nuevas"
+              className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] transition ${
+                editorConfig?.token
+                  ? 'border border-[#c6f36b]/40 bg-[#c6f36b]/10 font-semibold text-[#c6f36b] hover:bg-[#c6f36b]/20'
+                  : 'text-slate-500 hover:text-slate-300'
+              }`}
+            >
+              <Lock className="h-3 w-3" />
+              <span>{editorConfig?.token ? 'Editor activo' : 'Editor'}</span>
+            </button>
+          </div>
         </footer>
       </main>
+
+      <EditorAuthModal
+        isOpen={isEditorModalOpen}
+        currentConfig={editorConfig}
+        onClose={() => setIsEditorModalOpen(false)}
+        onSaveConfig={handleSaveEditorConfig}
+        onClearConfig={handleClearEditorConfig}
+      />
     </div>
   );
 }
