@@ -216,7 +216,7 @@ export function WarCardList({
               >
                 {/* Lado Izquierdo: COLOMBIA FORCE */}
                 <div className="min-w-0 text-left">
-                  <h3 className="font-display text-lg font-extrabold leading-snug tracking-tight text-white break-words">
+                  <h3 className="font-display text-[20px] font-extrabold leading-snug tracking-tight text-[#f7aa37] break-words">
                     {war.left.name}
                   </h3>
                   <p className="mt-1 text-xs text-slate-400">
@@ -400,7 +400,7 @@ export function WarCardList({
 
                 {/* Lado Derecho: Rival alineado exactamente a la misma altura */}
                 <div className="min-w-0 text-left md:text-right">
-                  <h3 className="font-display text-lg font-extrabold leading-snug tracking-tight text-white break-words">
+                  <h3 className="font-display text-[20px] font-extrabold leading-snug tracking-tight text-[#f7aa37] break-words">
                     {war.right.name}
                   </h3>
                   <p className="mt-1 text-xs text-slate-400">
