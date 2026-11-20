@@ -1,12 +1,36 @@
 {
-  "updated_at": "2026-11-19 21:27 UTC",
+  "updated_at": "2026-11-20 03:58 UTC",
   "refresh_pages": 1,
   "alliance": {
     "glory": "21,293",
-    "rank": "#94",
-    "division": "Triumphant #94"
+    "rank": "#98",
+    "division": "Triumphant #98"
   },
   "wars": [
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs kings of Domi",
+      "date": "2026/11/20",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "#94",
+        "glory": "21,293",
+        "division": "Triumphant #94"
+      },
+      "right": {
+        "name": "kings of Domi",
+        "rank": "#12",
+        "glory": "24,488",
+        "division": "Triumphant #12"
+      },
+      "result": "-50",
+      "stars": [
+        "—",
+        "—"
+      ],
+      "size": "—",
+      "notes": "—"
+    },
     {
       "page": 1,
       "title": "COLOMBIA FORCE vs THAI SLASH®",
