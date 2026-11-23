@@ -1,12 +1,36 @@
 {
-  "updated_at": "2026-11-21 20:03 UTC",
+  "updated_at": "2026-11-23 03:42 UTC",
   "refresh_pages": 1,
   "alliance": {
     "glory": "21,498",
-    "rank": "#97",
-    "division": "Triumphant #97"
+    "rank": "#91",
+    "division": "Triumphant #91"
   },
   "wars": [
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs 블랙스완",
+      "date": "2026/11/22",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "#97",
+        "glory": "21,498",
+        "division": "Triumphant #97"
+      },
+      "right": {
+        "name": "블랙스완",
+        "rank": "#145",
+        "glory": "19,947",
+        "division": "Iconic #4"
+      },
+      "result": "205",
+      "stars": [
+        "—",
+        "—"
+      ],
+      "size": "—",
+      "notes": "Close War"
+    },
     {
       "page": 1,
       "title": "COLOMBIA FORCE vs kings of Domi",
