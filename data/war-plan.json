@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-24 04:33 UTC",
-  "warSize": "10v10",
+  "updated_at": "2026-11-24 04:48 UTC",
+  "warSize": "20v20",
   "players": [
     {
       "id": "siniestro-slgdo",
       "name": "SINIESTRO.SLGDO",
       "line": "Def",
-      "objective": ""
+      "objective": "espiar 1 - libre"
     },
     {
       "id": "mayor",
@@ -36,7 +36,7 @@
       "id": "b-2-spirit",
       "name": "B-2 Spirit",
       "line": "Atk",
-      "objective": "2 - 8"
+      "objective": ""
     },
     {
       "id": "pal0",
@@ -108,7 +108,7 @@
       "id": "barinas",
       "name": "Barinas",
       "line": "Atk",
-      "objective": "9 - 8 - 7 - 6 - libre"
+      "objective": ""
     },
     {
       "id": "hattori",
@@ -120,7 +120,7 @@
       "id": "amaru83",
       "name": "AMARU83",
       "line": "Atk",
-      "objective": "libre"
+      "objective": ""
     },
     {
       "id": "mirror",
