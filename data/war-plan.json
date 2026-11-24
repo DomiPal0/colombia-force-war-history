@@ -1,0 +1,132 @@
+{
+  "updated_at": "2026-11-24 04:33 UTC",
+  "warSize": "10v10",
+  "players": [
+    {
+      "id": "siniestro-slgdo",
+      "name": "SINIESTRO.SLGDO",
+      "line": "Def",
+      "objective": ""
+    },
+    {
+      "id": "mayor",
+      "name": "Mayor",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "stronghold",
+      "name": "Stronghold",
+      "line": "Def",
+      "objective": ""
+    },
+    {
+      "id": "buddha",
+      "name": "ɮʊɖɖɦǟ",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "full-time",
+      "name": "full time",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "b-2-spirit",
+      "name": "B-2 Spirit",
+      "line": "Atk",
+      "objective": "2 - 8"
+    },
+    {
+      "id": "pal0",
+      "name": "PAL0",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "jujo",
+      "name": "Jujo",
+      "line": "Def",
+      "objective": ""
+    },
+    {
+      "id": "tracia",
+      "name": "Tracia",
+      "line": "Def",
+      "objective": ""
+    },
+    {
+      "id": "teo",
+      "name": "Teo",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "civil-war",
+      "name": "Civil War",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "bruce-wayne",
+      "name": "Bruce Wayne",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "suleyman",
+      "name": "Süleyman",
+      "line": "Def",
+      "objective": ""
+    },
+    {
+      "id": "stellium",
+      "name": "STELLTIUM",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "escipion",
+      "name": "ESCIPION",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "litozd",
+      "name": "LITOZD",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "coronel",
+      "name": "Coronel",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "barinas",
+      "name": "Barinas",
+      "line": "Atk",
+      "objective": "9 - 8 - 7 - 6 - libre"
+    },
+    {
+      "id": "hattori",
+      "name": "HATTORI",
+      "line": "Atk",
+      "objective": ""
+    },
+    {
+      "id": "amaru83",
+      "name": "AMARU83",
+      "line": "Atk",
+      "objective": "libre"
+    },
+    {
+      "id": "mirror",
+      "name": "MIRROR",
+      "line": "Atk",
+      "objective": ""
+    }
+  ]
+}
