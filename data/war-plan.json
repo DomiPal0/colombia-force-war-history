@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-24 04:48 UTC",
-  "warSize": "20v20",
+  "updated_at": "2026-11-24 04:54 UTC",
+  "warSize": "10v10",
   "players": [
     {
       "id": "siniestro-slgdo",
@@ -12,55 +12,55 @@
       "id": "mayor",
       "name": "Mayor",
       "line": "Atk",
-      "objective": ""
+      "objective": "2 - 7"
     },
     {
       "id": "stronghold",
       "name": "Stronghold",
       "line": "Def",
-      "objective": ""
+      "objective": "2 - 7"
     },
     {
       "id": "buddha",
       "name": "ɮʊɖɖɦǟ",
       "line": "Atk",
-      "objective": ""
+      "objective": "12 - 13"
     },
     {
       "id": "full-time",
       "name": "full time",
       "line": "Atk",
-      "objective": ""
+      "objective": "14 - 19"
     },
     {
       "id": "b-2-spirit",
       "name": "B-2 Spirit",
       "line": "Atk",
-      "objective": ""
+      "objective": "6 - 11"
     },
     {
       "id": "pal0",
       "name": "PAL0",
       "line": "Atk",
-      "objective": ""
+      "objective": "2 - 1"
     },
     {
       "id": "jujo",
       "name": "Jujo",
       "line": "Def",
-      "objective": ""
+      "objective": "8 - 3"
     },
     {
       "id": "tracia",
       "name": "Tracia",
       "line": "Def",
-      "objective": ""
+      "objective": "2"
     },
     {
       "id": "teo",
       "name": "Teo",
       "line": "Atk",
-      "objective": ""
+      "objective": "3"
     },
     {
       "id": "civil-war",
