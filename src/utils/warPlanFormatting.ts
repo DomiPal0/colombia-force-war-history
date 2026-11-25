@@ -1,4 +1,4 @@
-import type { WarDirective, WarPlanPlayer, WarPlanSize } from '../types/warPlan';
+import type { PlayerLine, WarDirective, WarPlanPlayer, WarPlanSize } from '../types/warPlan';
 
 export const MAX_OBJECTIVES_PER_PLAYER = 2;
 export const MAX_DEFENSE_OBJECTIVES = 5;
@@ -285,6 +285,7 @@ export function sortWarPlanPlayers(
 
 export interface WarPlanReportEntry {
   name: string;
+  line: PlayerLine;
   objective: string;
   isDefenseGroup?: boolean;
 }
@@ -306,6 +307,7 @@ export function buildShareReportEntries(
     } else {
       entries.push({
         name: player.name,
+        line: player.line,
         objective,
       });
     }
@@ -314,6 +316,7 @@ export function buildShareReportEntries(
   if (defenseObjectives.length > 0) {
     entries.push({
       name: 'Defensivos',
+      line: 'Def',
       objective: defenseObjectives.join(' / '),
       isDefenseGroup: true,
     });
@@ -341,22 +344,28 @@ export function buildWhatsAppReportText(
       (max, entry) => Math.max(max, Array.from(entry.name).length),
       0,
     );
-    const maxObjLen = entries.reduce(
-      (max, entry) => Math.max(max, Array.from(entry.objective).length),
-      0,
-    );
-    const nameColWidth = maxNameLen + 2;
-    const objColWidth = Math.max(maxObjLen, 8);
+    const nameColWidth = maxNameLen + 3;
+    const indentPad = ' '.repeat(nameColWidth);
 
     lines.push('```');
     for (const entry of entries) {
       const nameChars = Array.from(entry.name).length;
-      const objChars = Array.from(entry.objective).length;
       const namePad = ' '.repeat(Math.max(1, nameColWidth - nameChars));
-      const leftCenterPad = ' '.repeat(
-        Math.max(0, Math.floor((objColWidth - objChars) / 2)),
-      );
-      lines.push(`${entry.name}${namePad}${leftCenterPad}${entry.objective}`);
+      const parts = entry.objective
+        .split(/\s+-\s+/)
+        .map((part) => part.trim())
+        .filter(Boolean);
+
+      if (parts.length <= 3) {
+        const formattedObj =
+          parts.length > 0 ? parts.join(' | ') : entry.objective;
+        lines.push(`${entry.name}${namePad}${formattedObj}`);
+      } else {
+        const firstLine = parts.slice(0, 3).join(' | ');
+        const restLine = parts.slice(3).join(' | ');
+        lines.push(`${entry.name}${namePad}${firstLine}`);
+        lines.push(`${indentPad}| ${restLine}`);
+      }
     }
     lines.push('```');
   }
@@ -368,6 +377,20 @@ export async function renderWarPlanReportPng(
   players: WarPlanPlayer[],
   warSize: WarPlanSize,
 ): Promise<Blob> {
+  if (typeof document !== 'undefined' && document.fonts) {
+    try {
+      await Promise.all([
+        document.fonts.ready,
+        document.fonts.load('700 16px "Barlow"'),
+        document.fonts.load('800 26px "Barlow"'),
+        document.fonts.load('600 13px "JetBrains Mono"'),
+        document.fonts.load('700 12px "Plus Jakarta Sans"'),
+      ]);
+    } catch {
+      // Continuar con fuentes disponibles si el navegador bloquea la carga explícita
+    }
+  }
+
   const entries = buildShareReportEntries(players);
   const assignedPlayerCount = players.filter(
     (player) => player.objective.trim() !== '',
@@ -402,6 +425,8 @@ export async function renderWarPlanReportPng(
   ctx.strokeRect(12, 12, width - 24, totalHeight - 24);
 
   // Encabezado
+  ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'left';
   ctx.fillStyle = '#c6f36b';
   ctx.font = '700 12px "Plus Jakarta Sans", sans-serif';
   ctx.fillText('COLOMBIA FORCE · PLANIFICACIÓN TÁCTICA', paddingX, 42);
@@ -418,7 +443,7 @@ export async function renderWarPlanReportPng(
   const metaMetrics = ctx.measureText(metaText);
   ctx.fillText(metaText, width - paddingX - metaMetrics.width, 72);
 
-  // Cabecera de tabla (2 columnas: PARCEROS | OBJETIVO centrado)
+  // Cabecera de tabla (3 columnas: PARCEROS | LINEA | OBJETIVO)
   const tableTop = headerHeight;
   const tableWidth = width - paddingX * 2;
   ctx.fillStyle = '#101c2d';
@@ -427,49 +452,70 @@ export async function renderWarPlanReportPng(
   ctx.lineWidth = 1.5;
   ctx.strokeRect(paddingX, tableTop, tableWidth, tableHeaderHeight);
 
+  const parcerosColWidth = Math.round(tableWidth * 0.36);
+  const lineaColWidth = Math.round(tableWidth * 0.16);
+  const objetivoColWidth = tableWidth - parcerosColWidth - lineaColWidth;
+
   const colParcerosX = paddingX + 18;
-  const colObjetivoCenterX = paddingX + 340 + (tableWidth - 340) / 2;
+  const colLineaCenterX = paddingX + parcerosColWidth + lineaColWidth / 2;
+  const colObjetivoCenterX =
+    paddingX + parcerosColWidth + lineaColWidth + objetivoColWidth / 2;
 
+  ctx.textBaseline = 'middle';
   ctx.fillStyle = '#94a3b8';
-  ctx.font = '700 12px "Plus Jakarta Sans", sans-serif';
+  ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
   ctx.textAlign = 'left';
-  ctx.fillText('PARCEROS', colParcerosX, tableTop + 26);
+  ctx.fillText('PARCEROS', colParcerosX, tableTop + tableHeaderHeight / 2);
   ctx.textAlign = 'center';
-  ctx.fillText('OBJETIVO', colObjetivoCenterX, tableTop + 26);
+  ctx.fillText('LINEA', colLineaCenterX, tableTop + tableHeaderHeight / 2);
+  ctx.fillText('OBJETIVO', colObjetivoCenterX, tableTop + tableHeaderHeight / 2);
 
-  // Filas
+  // Filas con formato idéntico a la tabla web
   entries.forEach((entry, index) => {
     const y = tableTop + tableHeaderHeight + index * rowHeight;
-    ctx.fillStyle = index % 2 === 0 ? '#0d1726' : '#111e31';
+    const centerY = y + rowHeight / 2;
+    ctx.fillStyle = index % 2 === 0 ? '#0f1b2b' : '#122033';
     ctx.fillRect(paddingX, y, tableWidth, rowHeight);
 
-    ctx.strokeStyle = '#23354b';
+    ctx.strokeStyle = '#1f3045';
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(paddingX, y + rowHeight);
     ctx.lineTo(paddingX + tableWidth, y + rowHeight);
     ctx.stroke();
 
-    // Nick en ámbar #f7aa37 (Defensivos en rojo suave)
+    // PARCEROS en blanco bold (Barlow 16px)
     ctx.textAlign = 'left';
-    ctx.fillStyle = entry.isDefenseGroup ? '#fb7185' : '#f7aa37';
+    ctx.fillStyle = '#ffffff';
     ctx.font = '700 16px "Barlow", "Plus Jakarta Sans", sans-serif';
-    ctx.fillText(entry.name, colParcerosX, y + 28, 310);
+    ctx.fillText(entry.name, colParcerosX, centerY, parcerosColWidth - 26);
 
-    // Objetivo centrado en verde lima claro
+    // LINEA centrada (Def rojo suave #fb7185, Atk azul suave #60a5fa, JetBrains Mono 13px)
+    ctx.textAlign = 'center';
+    ctx.fillStyle = entry.line === 'Def' ? '#fb7185' : '#60a5fa';
+    ctx.font = '600 13px "JetBrains Mono", monospace';
+    ctx.fillText(entry.line, colLineaCenterX, centerY, lineaColWidth - 14);
+
+    // OBJETIVO centrado en verde lima claro (#ecfccb, JetBrains Mono 13px)
     ctx.textAlign = 'center';
     ctx.fillStyle = '#ecfccb';
-    ctx.font = '700 15px "JetBrains Mono", monospace';
-    ctx.fillText(entry.objective, colObjetivoCenterX, y + 27, tableWidth - 360);
+    ctx.font = '600 13px "JetBrains Mono", monospace';
+    ctx.fillText(entry.objective, colObjetivoCenterX, centerY, objetivoColWidth - 26);
   });
 
+  // Borde exterior de la tabla para un acabado limpio
+  ctx.strokeStyle = '#334b66';
+  ctx.lineWidth = 1.5;
+  ctx.strokeRect(paddingX, tableTop, tableWidth, tableHeaderHeight + bodyRows * rowHeight);
+
+  ctx.textBaseline = 'alphabetic';
   ctx.textAlign = 'left';
   ctx.fillStyle = '#64748b';
   ctx.font = '500 11px "Plus Jakarta Sans", sans-serif';
   ctx.fillText(
     'Solo incluye jugadores con objetivo asignado.',
     paddingX,
-    totalHeight - 20,
+    totalHeight - 18,
   );
 
   return new Promise((resolve, reject) => {
