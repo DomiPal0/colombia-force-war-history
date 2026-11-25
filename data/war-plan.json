@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25 00:03 UTC",
+  "updated_at": "2026-11-25 00:15 UTC",
   "warSize": "15v15",
   "players": [
     {
@@ -42,7 +42,7 @@
       "id": "pal0",
       "name": "PAL0",
       "line": "Atk",
-      "objective": "4 - 5"
+      "objective": ""
     },
     {
       "id": "jujo",
