@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-11-25 03:27 UTC",
+  "updated_at": "2026-11-25 12:44 UTC",
   "warSize": "15v15",
   "players": [
     {
       "id": "siniestro-slgdo",
       "name": "SINIESTRO",
       "line": "Def",
-      "objective": "15 - 14 - 13 - 12"
+      "objective": ""
     },
     {
       "id": "mayor",
       "name": "Mayor",
       "line": "Atk",
-      "objective": "7 - 8"
+      "objective": ""
     },
     {
       "id": "stronghold",
@@ -30,55 +30,55 @@
       "id": "full-time",
       "name": "full time",
       "line": "Atk",
-      "objective": "11 - libre"
+      "objective": ""
     },
     {
       "id": "b-2-spirit",
       "name": "B-2 Spirit",
       "line": "Atk",
-      "objective": "3 - 5"
+      "objective": ""
     },
     {
       "id": "pal0",
       "name": "PAL0",
       "line": "Atk",
-      "objective": "2 - esperar"
+      "objective": ""
     },
     {
       "id": "jujo",
       "name": "Jujo",
       "line": "Def",
-      "objective": "15 - 14 - 13 - 12"
+      "objective": ""
     },
     {
       "id": "tracia",
       "name": "Tracia",
       "line": "Def",
-      "objective": "15 - 14 - 13 - 12"
+      "objective": ""
     },
     {
       "id": "teo",
       "name": "Teo",
       "line": "Atk",
-      "objective": "1 - 3"
+      "objective": ""
     },
     {
       "id": "civil-war",
       "name": "Civil War",
       "line": "Atk",
-      "objective": "9 - 10"
+      "objective": ""
     },
     {
       "id": "bruce-wayne",
       "name": "Bruce Wayne",
       "line": "Atk",
-      "objective": "4 - 6"
+      "objective": ""
     },
     {
       "id": "suleyman",
       "name": "Süleyman",
       "line": "Def",
-      "objective": "15 - 14 - 13 - 12"
+      "objective": ""
     },
     {
       "id": "stellium",
@@ -96,7 +96,7 @@
       "id": "litozd",
       "name": "LITOZD",
       "line": "Def",
-      "objective": "15 - 14 - 13 - 12"
+      "objective": ""
     },
     {
       "id": "coronel",
