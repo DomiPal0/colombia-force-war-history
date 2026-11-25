@@ -1,12 +1,36 @@
 {
-  "updated_at": "2026-11-24 22:59 UTC",
+  "updated_at": "2026-11-25 02:17 UTC",
   "refresh_pages": 1,
   "alliance": {
     "glory": "21,462",
-    "rank": "#91",
-    "division": "Triumphant #91"
+    "rank": "#92",
+    "division": "Triumphant #92"
   },
   "wars": [
+    {
+      "page": 1,
+      "title": "COLOMBIA FORCE vs Rebel Wizards",
+      "date": "2026/11/25",
+      "left": {
+        "name": "COLOMBIA FORCE",
+        "rank": "#91",
+        "glory": "21,462",
+        "division": "Triumphant #91"
+      },
+      "right": {
+        "name": "Rebel Wizards",
+        "rank": "#7",
+        "glory": "25,279",
+        "division": "Triumphant #7"
+      },
+      "result": "-36",
+      "stars": [
+        "—",
+        "—"
+      ],
+      "size": "—",
+      "notes": "—"
+    },
     {
       "page": 1,
       "title": "COLOMBIA FORCE vs 블랙스완",
