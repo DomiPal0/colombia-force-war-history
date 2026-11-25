@@ -148,14 +148,14 @@ export function PlayerObjectiveModal({
     >
       <div className="flex max-h-[92vh] w-full max-w-md flex-col overflow-hidden rounded-xl border-2 border-[#3b5573] bg-[#0f1b2b] shadow-2xl">
         {/* Encabezado */}
-        <div className="mt-0 flex items-start justify-between gap-3 border-b-2 border-[#23354b] px-4 pt-[5px] pb-0">
+        <div className="mt-0 flex h-[56.6px] items-start justify-between gap-3 border-b-2 border-[#23354b] px-4 pt-[5px] pb-0">
           <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.11em] text-slate-400">
+            <p className="text-[11px] font-bold uppercase tracking-[0.11em] text-slate-400">
               Asignar objetivos · {warSize}
             </p>
             <h2
               id="assign-player-title"
-              className={`mt-[2px] truncate py-0 font-display text-[15px] leading-[21px] font-extrabold ${
+              className={`mt-[7px] truncate pt-0 pb-0 font-display text-[18px] leading-[21px] font-normal ${
                 isDefenseGroup ? 'text-rose-400' : 'text-[#f7aa37]'
               }`}
             >
