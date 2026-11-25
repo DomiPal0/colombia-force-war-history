@@ -1,4 +1,5 @@
 import type { WarEntry, WarsSnapshot } from '../types/war';
+import type { WarPlanSnapshot } from '../types/warPlan';
 
 export const DEFAULT_GITHUB_REPO = 'DomiPal0/colombia-force-war-history';
 export const WAR_SIZE_OPTIONS = ['10 v 10', '15 v 15', '20 v 20', '30 v 30'] as const;
@@ -252,4 +253,162 @@ export async function saveWarEditsToGitHub(params: {
   }
 
   return { war: updatedWar };
+}
+
+function formatUtcNow(): string {
+  const now = new Date();
+  const y = now.getUTCFullYear();
+  const m = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const d = String(now.getUTCDate()).padStart(2, '0');
+  const hh = String(now.getUTCHours()).padStart(2, '0');
+  const mm = String(now.getUTCMinutes()).padStart(2, '0');
+  return `${y}-${m}-${d} ${hh}:${mm} UTC`;
+}
+
+export async function fetchWarPlanFromGitHub(
+  token: string,
+  repo: string,
+): Promise<WarPlanSnapshot | null> {
+  const cleanToken = token.trim();
+  const cleanRepo = repo.trim();
+  if (!cleanToken || !cleanRepo) return null;
+
+  const response = await fetch(
+    `https://api.github.com/repos/${cleanRepo}/contents/data/war-plan.json`,
+    {
+      cache: 'no-store',
+      headers: {
+        Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${cleanToken}`,
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    },
+  );
+
+  if (!response.ok) return null;
+
+  const payload = (await response.json()) as GitHubContentsResponse;
+  const decoded = decodeBase64Utf8(payload.content);
+  const parsed = JSON.parse(decoded) as WarPlanSnapshot;
+  if (!Array.isArray(parsed.players)) return null;
+  return parsed;
+}
+
+export async function fetchPublicWarPlanFromGitHub(
+  repo: string,
+): Promise<WarPlanSnapshot | null> {
+  const cleanRepo = repo
+    .trim()
+    .replace(/^https?:\/\/github\.com\//i, '')
+    .replace(/\/+$/, '');
+  if (!cleanRepo) return null;
+
+  const bust = Date.now();
+  try {
+    const apiResp = await fetch(
+      `https://api.github.com/repos/${cleanRepo}/contents/data/war-plan.json?t=${bust}`,
+      {
+        headers: {
+          Accept: 'application/vnd.github+json',
+        },
+      },
+    );
+    if (apiResp.ok) {
+      const payload = (await apiResp.json()) as GitHubContentsResponse;
+      if (payload.content) {
+        const decoded = decodeBase64Utf8(payload.content);
+        const parsed = JSON.parse(decoded) as WarPlanSnapshot;
+        if (Array.isArray(parsed.players)) return parsed;
+      }
+    }
+  } catch {
+    // Fallback a raw.githubusercontent.com
+  }
+
+  try {
+    const rawResp = await fetch(
+      `https://raw.githubusercontent.com/${cleanRepo}/main/data/war-plan.json?t=${bust}`,
+    );
+    if (rawResp.ok) {
+      const parsed = (await rawResp.json()) as WarPlanSnapshot;
+      if (Array.isArray(parsed.players)) return parsed;
+    }
+  } catch {
+    // Fallback a endpoint local / bundle
+  }
+
+  return null;
+}
+
+export async function saveWarPlanToGitHub(params: {
+  token: string;
+  repo: string;
+  plan: WarPlanSnapshot;
+}): Promise<WarPlanSnapshot> {
+  const cleanToken = params.token.trim();
+  const cleanRepo = params.repo.trim();
+
+  const headers: Record<string, string> = {
+    Accept: 'application/vnd.github+json',
+    Authorization: `Bearer ${cleanToken}`,
+    'X-GitHub-Api-Version': '2022-11-28',
+  };
+
+  let existingSha: string | undefined;
+  const getResp = await fetch(
+    `https://api.github.com/repos/${cleanRepo}/contents/data/war-plan.json`,
+    {
+      cache: 'no-store',
+      headers,
+    },
+  );
+
+  if (getResp.status === 401 || getResp.status === 403) {
+    throw new Error('El token de GitHub no es válido o no tiene permiso de escritura.');
+  }
+  if (getResp.ok) {
+    const filePayload = (await getResp.json()) as GitHubContentsResponse;
+    existingSha = filePayload.sha;
+  } else if (getResp.status !== 404) {
+    throw new Error(`No se pudo leer data/war-plan.json en GitHub (HTTP ${getResp.status}).`);
+  }
+
+  const nextSnapshot: WarPlanSnapshot = {
+    updated_at: formatUtcNow(),
+    warSize: params.plan.warSize,
+    players: params.plan.players,
+  };
+
+  const serialized = `${JSON.stringify(nextSnapshot, null, 2)}\n`;
+  const bodyPayload: { message: string; content: string; sha?: string } = {
+    message: `chore: actualizar sala de guerra (${nextSnapshot.warSize})`,
+    content: encodeBase64Utf8(serialized),
+  };
+  if (existingSha) {
+    bodyPayload.sha = existingSha;
+  }
+
+  const putResp = await fetch(
+    `https://api.github.com/repos/${cleanRepo}/contents/data/war-plan.json`,
+    {
+      method: 'PUT',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bodyPayload),
+    },
+  );
+
+  if (putResp.status === 409) {
+    throw new Error('Hubo una actualización simultánea en GitHub. Intenta guardar de nuevo.');
+  }
+  if (putResp.status === 401 || putResp.status === 403 || putResp.status === 404) {
+    throw new Error('El token no tiene permiso Contents: Read and write sobre este repositorio.');
+  }
+  if (!putResp.ok) {
+    throw new Error(`No se pudo guardar en GitHub (HTTP ${putResp.status}).`);
+  }
+
+  return nextSnapshot;
 }
