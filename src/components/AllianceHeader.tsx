@@ -1,12 +1,18 @@
+import { Crosshair } from 'lucide-react';
 import type { AllianceOverview, WarEntry } from '../types/war';
 import { normalizeRankDisplay } from '../utils/warUtils';
 
 interface AllianceHeaderProps {
   latestWar?: WarEntry;
   alliance?: AllianceOverview;
+  onOpenWarRoom?: () => void;
 }
 
-export function AllianceHeader({ latestWar, alliance }: AllianceHeaderProps) {
+export function AllianceHeader({
+  latestWar,
+  alliance,
+  onOpenWarRoom,
+}: AllianceHeaderProps) {
   const rankNumber = normalizeRankDisplay(alliance?.rank ?? latestWar?.left.rank);
 
   return (
@@ -25,19 +31,19 @@ export function AllianceHeader({ latestWar, alliance }: AllianceHeaderProps) {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <div className="flex flex-wrap items-end gap-4 sm:gap-7">
-          <div className="flex items-center gap-3.5">
-            <img
-              src="./assets/escudo-colfor.png"
-              alt="Escudo COLOMBIA FORCE"
-              className="h-12 w-12 shrink-0 object-contain"
-            />
-            <h1 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
-              COLOMBIA FORCE
-            </h1>
-          </div>
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex items-center gap-3.5">
+          <img
+            src="./assets/escudo-colfor.png"
+            alt="Escudo COLOMBIA FORCE"
+            className="h-12 w-12 shrink-0 object-contain"
+          />
+          <h1 className="font-display text-3xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
+            COLOMBIA FORCE
+          </h1>
+        </div>
 
+        <div className="flex flex-1 items-end justify-between gap-3 lg:pl-7">
           <div className="flex flex-col gap-1">
             <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">
               Ranking
@@ -50,6 +56,17 @@ export function AllianceHeader({ latestWar, alliance }: AllianceHeaderProps) {
               <span>{rankNumber}</span>
             </div>
           </div>
+
+          {onOpenWarRoom && (
+            <button
+              type="button"
+              onClick={onOpenWarRoom}
+              className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-lg border-2 border-[#f7aa37]/75 bg-[#121f31] px-3.5 py-2 font-display text-xs font-bold uppercase tracking-wide text-[#f7aa37] transition hover:border-[#f7aa37] hover:bg-[#192b44] sm:px-4 sm:text-sm"
+            >
+              <Crosshair className="h-4 w-4" />
+              <span>Sala de Guerra</span>
+            </button>
+          )}
         </div>
       </div>
     </header>
