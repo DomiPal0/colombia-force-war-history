@@ -8,6 +8,7 @@ import type { AllianceOverview, AllianceSide, WarEntry, WarsSnapshot } from './s
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_FILE = path.join(__dirname, 'data', 'wars.json');
+const WAR_PLAN_FILE = path.join(__dirname, 'data', 'war-plan.json');
 const DOMISTATS_URL = 'https://domistats.com/alliance_wars/68105?page=1';
 const DOMISTATS_ALLIANCE_URL = 'https://domistats.com/alliance/68105';
 const PORT = Number(process.env.PORT) || 3000;
@@ -342,6 +343,17 @@ async function startServer() {
     } catch (error) {
       res.status(500).json({
         error: error instanceof Error ? error.message : 'No se pudo leer la base de datos de guerras.',
+      });
+    }
+  });
+
+  app.get('/api/war-plan', async (_req, res) => {
+    try {
+      const raw = await fs.readFile(WAR_PLAN_FILE, 'utf-8');
+      res.json(JSON.parse(raw));
+    } catch (error) {
+      res.status(500).json({
+        error: error instanceof Error ? error.message : 'No se pudo leer la planeación de guerra.',
       });
     }
   });
