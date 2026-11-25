@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-25 00:15 UTC",
+  "updated_at": "2026-11-25 01:19 UTC",
   "warSize": "15v15",
   "players": [
     {
       "id": "siniestro-slgdo",
-      "name": "SINIESTRO.SLGDO",
-      "line": "Def",
+      "name": "SINIESTRO",
+      "line": "Atk",
       "objective": "1 - 2"
     },
     {
@@ -17,7 +17,7 @@
     {
       "id": "stronghold",
       "name": "Stronghold",
-      "line": "Def",
+      "line": "Atk",
       "objective": "espiar 3 - libre"
     },
     {
@@ -41,19 +41,19 @@
     {
       "id": "pal0",
       "name": "PAL0",
-      "line": "Atk",
-      "objective": ""
+      "line": "Def",
+      "objective": "1 - 2 - 3 - 4 - 5"
     },
     {
       "id": "jujo",
       "name": "Jujo",
-      "line": "Def",
+      "line": "Atk",
       "objective": ""
     },
     {
       "id": "tracia",
       "name": "Tracia",
-      "line": "Def",
+      "line": "Atk",
       "objective": ""
     },
     {
@@ -77,8 +77,8 @@
     {
       "id": "suleyman",
       "name": "Süleyman",
-      "line": "Def",
-      "objective": ""
+      "line": "Atk",
+      "objective": "espiar 3 - libre"
     },
     {
       "id": "stellium",
@@ -119,8 +119,8 @@
     {
       "id": "amaru83",
       "name": "AMARU83",
-      "line": "Atk",
-      "objective": ""
+      "line": "Def",
+      "objective": "1 - 2 - 3 - 4 - 5"
     },
     {
       "id": "mirror",
