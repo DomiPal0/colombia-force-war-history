@@ -5,22 +5,43 @@ import { EditorAuthModal } from './components/EditorAuthModal';
 import { MetricsOverview } from './components/MetricsOverview';
 import { WarCardList } from './components/WarCardList';
 import { WarFilters } from './components/WarFilters';
+import { WarRoomPage } from './components/WarRoomPage';
 import { WinLossChart } from './components/WinLossChart';
+import fallbackWarPlan from '../data/war-plan.json';
 import fallbackSnapshot from '../data/wars.json';
 import type { AllianceOverview, OutcomeFilter, WarEntry, WarsSnapshot } from './types/war';
+import type { WarPlanSnapshot } from './types/warPlan';
 import {
   clearEditorConfig,
+  detectDefaultRepo,
+  fetchPublicWarPlanFromGitHub,
+  fetchWarPlanFromGitHub,
   loadEditorConfig,
   saveEditorConfig,
   saveWarEditsToGitHub,
+  saveWarPlanToGitHub,
   type EditorConfig,
 } from './utils/githubEditor';
 import { computeSummaryStats, matchesWarFilters } from './utils/warUtils';
 
 const PAGE_SIZE = 25;
+
+function normalizeWarPlanSnapshot(snapshot: WarPlanSnapshot): WarPlanSnapshot {
+  return {
+    ...snapshot,
+    players: snapshot.players.map((player) =>
+      player.name === 'SINIESTRO.SLGDO'
+        ? { ...player, name: 'SINIESTRO' }
+        : player,
+    ),
+  };
+}
 const VALID_OUTCOMES: OutcomeFilter[] = ['all', 'win', 'loss', 'time', 'close'];
 
+type AppView = 'history' | 'war-room';
+
 interface NavigationState {
+  view: AppView;
   query: string;
   outcome: OutcomeFilter;
   size: string;
@@ -31,6 +52,7 @@ interface NavigationState {
 function readNavigationStateFromUrl(): NavigationState {
   if (typeof window === 'undefined') {
     return {
+      view: 'history',
       query: '',
       outcome: 'all',
       size: 'all',
@@ -40,6 +62,9 @@ function readNavigationStateFromUrl(): NavigationState {
   }
 
   const params = new URLSearchParams(window.location.search);
+  const view: AppView =
+    params.get('view') === 'sala-guerra' ? 'war-room' : 'history';
+
   const rawPage = Number.parseInt(params.get('page') || '1', 10);
   const page = Number.isFinite(rawPage) && rawPage >= 1 ? rawPage : 1;
 
@@ -54,6 +79,7 @@ function readNavigationStateFromUrl(): NavigationState {
     periodParam && periodParam.trim() ? periodParam.trim() : null;
 
   return {
+    view,
     query,
     outcome,
     size,
@@ -64,11 +90,15 @@ function readNavigationStateFromUrl(): NavigationState {
 
 function buildUrlForState(state: NavigationState): string {
   const params = new URLSearchParams();
-  if (state.page > 1) params.set('page', String(state.page));
-  if (state.query.trim()) params.set('q', state.query);
-  if (state.outcome !== 'all') params.set('outcome', state.outcome);
-  if (state.size !== 'all') params.set('size', state.size);
-  if (state.selectedPeriod) params.set('period', state.selectedPeriod);
+  if (state.view === 'war-room') {
+    params.set('view', 'sala-guerra');
+  } else {
+    if (state.page > 1) params.set('page', String(state.page));
+    if (state.query.trim()) params.set('q', state.query);
+    if (state.outcome !== 'all') params.set('outcome', state.outcome);
+    if (state.size !== 'all') params.set('size', state.size);
+    if (state.selectedPeriod) params.set('period', state.selectedPeriod);
+  }
 
   const search = params.toString();
   const basePath = window.location.pathname;
@@ -84,6 +114,13 @@ export default function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
+  const [warPlan, setWarPlan] = useState<WarPlanSnapshot>(() =>
+    normalizeWarPlanSnapshot(fallbackWarPlan as WarPlanSnapshot),
+  );
+  const [isWarPlanLoading, setIsWarPlanLoading] = useState<boolean>(true);
+  const [hasUnsavedPlanChanges, setHasUnsavedPlanChanges] = useState<boolean>(false);
+
+  const [view, setView] = useState<AppView>(initialNav.view);
   const [query, setQuery] = useState<string>(initialNav.query);
   const [outcome, setOutcome] = useState<OutcomeFilter>(initialNav.outcome);
   const [size, setSize] = useState<string>(initialNav.size);
@@ -98,7 +135,7 @@ export default function App() {
 
   const listTopRef = useRef<HTMLDivElement>(null);
   const navStateRef = useRef<NavigationState>(initialNav);
-  navStateRef.current = { query, outcome, size, selectedPeriod, page };
+  navStateRef.current = { view, query, outcome, size, selectedPeriod, page };
 
   useEffect(() => {
     window.history.replaceState(initialNav, '', buildUrlForState(initialNav));
@@ -110,6 +147,7 @@ export default function App() {
       const nextState: NavigationState =
         stateFromHistory && typeof stateFromHistory.page === 'number'
           ? {
+              view: stateFromHistory.view === 'war-room' ? 'war-room' : 'history',
               query: typeof stateFromHistory.query === 'string' ? stateFromHistory.query : '',
               outcome:
                 stateFromHistory.outcome &&
@@ -125,8 +163,10 @@ export default function App() {
             }
           : readNavigationStateFromUrl();
 
-      const pageChanged = nextState.page !== navStateRef.current.page;
+      const pageChanged =
+        nextState.view === 'history' && nextState.page !== navStateRef.current.page;
 
+      setView(nextState.view);
       setQuery(nextState.query);
       setOutcome(nextState.outcome);
       setSize(nextState.size);
@@ -150,6 +190,7 @@ export default function App() {
         ...navStateRef.current,
         ...patch,
       };
+      setView(nextState.view);
       setQuery(nextState.query);
       setOutcome(nextState.outcome);
       setSize(nextState.size);
@@ -194,9 +235,53 @@ export default function App() {
     }
   }, []);
 
+  const fetchWarPlan = useCallback(async () => {
+    setIsWarPlanLoading(true);
+    try {
+      const repo = editorConfig?.repo || detectDefaultRepo();
+      if (editorConfig?.token) {
+        const fromGitHub = await fetchWarPlanFromGitHub(
+          editorConfig.token,
+          repo,
+        );
+        if (fromGitHub) {
+          setWarPlan(normalizeWarPlanSnapshot(fromGitHub));
+          setHasUnsavedPlanChanges(false);
+          return;
+        }
+      } else {
+        const publicFromGitHub = await fetchPublicWarPlanFromGitHub(repo);
+        if (publicFromGitHub) {
+          setWarPlan(normalizeWarPlanSnapshot(publicFromGitHub));
+          setHasUnsavedPlanChanges(false);
+          return;
+        }
+      }
+
+      const response = await fetch('./api/war-plan');
+      const contentType = response.headers.get('content-type') || '';
+      if (response.ok && contentType.includes('application/json')) {
+        const data = (await response.json()) as WarPlanSnapshot;
+        if (Array.isArray(data.players)) {
+          setWarPlan(normalizeWarPlanSnapshot(data));
+          setHasUnsavedPlanChanges(false);
+          return;
+        }
+      }
+    } catch {
+      // Usa el snapshot incluido en el build
+    } finally {
+      setIsWarPlanLoading(false);
+    }
+  }, [editorConfig]);
+
   useEffect(() => {
     fetchArchive();
   }, [fetchArchive]);
+
+  useEffect(() => {
+    fetchWarPlan();
+  }, [fetchWarPlan]);
 
   const availableSizes = useMemo(() => {
     const unique = new Set<string>();
@@ -232,6 +317,19 @@ export default function App() {
   }, [filteredWars, safePage]);
 
   const latestWar = wars[0];
+
+  const handleOpenWarRoom = () => {
+    commitNavigation({ view: 'war-room' }, 'push');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!hasUnsavedPlanChanges) {
+      void fetchWarPlan();
+    }
+  };
+
+  const handleBackToHistory = () => {
+    commitNavigation({ view: 'history' }, 'push');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleQueryChange = (value: string) => {
     commitNavigation({ query: value, page: 1 }, 'replace');
@@ -300,94 +398,146 @@ export default function App() {
     [editorConfig],
   );
 
+  const handleUpdateWarPlan = useCallback(
+    (updater: (prev: WarPlanSnapshot) => WarPlanSnapshot) => {
+      setWarPlan((prev) => updater(prev));
+      setHasUnsavedPlanChanges(true);
+    },
+    [],
+  );
+
+  const handleSaveWarPlan = useCallback(async () => {
+    if (!editorConfig?.token) {
+      setIsEditorModalOpen(true);
+      throw new Error('Activa el modo editor primero.');
+    }
+
+    const saved = await saveWarPlanToGitHub({
+      token: editorConfig.token,
+      repo: editorConfig.repo,
+      plan: warPlan,
+    });
+    setWarPlan(saved);
+    setHasUnsavedPlanChanges(false);
+  }, [editorConfig, warPlan]);
+
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_78%_-10%,rgba(33,55,84,0.48)_0%,transparent_48%)] bg-[#0a111d]">
       <main className="mx-auto max-w-[1320px] px-4 py-7 sm:px-7 sm:py-9">
-        <AllianceHeader latestWar={latestWar} alliance={alliance} />
-
-        {isLoading ? (
-          <div className="mt-6 space-y-4">
-            <div className="h-20 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
-            <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
-              <div className="h-16 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
-              <div className="h-16 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
-              <div className="h-16 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
-            </div>
-            <div className="h-56 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
-          </div>
-        ) : loadError ? (
-          <div className="mt-8 rounded-xl border-2 border-rose-500/50 bg-rose-950/20 p-6 text-center">
-            <p className="text-sm font-semibold text-rose-300">{loadError}</p>
-            <button
-              type="button"
-              onClick={fetchArchive}
-              className="mt-4 rounded-lg border-2 border-rose-400/60 bg-[#121f31] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1a2c44]"
-            >
-              Reintentar
-            </button>
-          </div>
+        {view === 'war-room' ? (
+          <WarRoomPage
+            plan={warPlan}
+            isLoading={isWarPlanLoading}
+            isEditorUnlocked={Boolean(editorConfig?.token)}
+            hasUnsavedChanges={hasUnsavedPlanChanges}
+            onUpdatePlan={handleUpdateWarPlan}
+            onSavePlanToGitHub={handleSaveWarPlan}
+            onNavigateBack={handleBackToHistory}
+          />
         ) : (
           <>
-            <MetricsOverview
+            <AllianceHeader
               latestWar={latestWar}
               alliance={alliance}
-              totalWars={summaryStats.total}
-              wins={summaryStats.wins}
-              losses={summaryStats.losses}
+              onOpenWarRoom={handleOpenWarRoom}
             />
 
-            <WinLossChart
-              wars={wars}
-              selectedPeriod={selectedPeriod}
-              onSelectPeriod={handleSelectPeriod}
-            />
+            {isLoading ? (
+              <div className="mt-6 space-y-4">
+                <div className="h-20 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
+                <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
+                  <div className="h-16 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
+                  <div className="h-16 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
+                  <div className="h-16 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
+                </div>
+                <div className="h-56 animate-pulse rounded-xl border-2 border-[#25374d] bg-[#101c2d]" />
+              </div>
+            ) : loadError ? (
+              <div className="mt-8 rounded-xl border-2 border-rose-500/50 bg-rose-950/20 p-6 text-center">
+                <p className="text-sm font-semibold text-rose-300">{loadError}</p>
+                <button
+                  type="button"
+                  onClick={fetchArchive}
+                  className="mt-4 rounded-lg border-2 border-rose-400/60 bg-[#121f31] px-4 py-2 text-xs font-semibold text-white hover:bg-[#1a2c44]"
+                >
+                  Reintentar
+                </button>
+              </div>
+            ) : (
+              <>
+                <MetricsOverview
+                  latestWar={latestWar}
+                  alliance={alliance}
+                  totalWars={summaryStats.total}
+                  wins={summaryStats.wins}
+                  losses={summaryStats.losses}
+                />
 
-            <div ref={listTopRef}>
-              <WarFilters
-                query={query}
-                outcome={outcome}
-                size={size}
-                availableSizes={availableSizes}
-                hasActiveFilters={hasActiveFilters}
-                onQueryChange={handleQueryChange}
-                onOutcomeChange={handleOutcomeChange}
-                onSizeChange={handleSizeChange}
-                onResetFilters={handleResetFilters}
-              />
-            </div>
+                <WinLossChart
+                  wars={wars}
+                  selectedPeriod={selectedPeriod}
+                  onSelectPeriod={handleSelectPeriod}
+                />
 
-            <WarCardList
-              wars={pageWars}
-              totalMatched={filteredWars.length}
-              totalArchive={wars.length}
-              page={safePage}
-              totalPages={totalPages}
-              selectedPeriod={selectedPeriod}
-              onClearPeriod={() => handleSelectPeriod(null)}
-              onPageChange={handlePageChange}
-              onResetFilters={handleResetFilters}
-              isEditorUnlocked={Boolean(editorConfig?.token)}
-              latestWarDate={latestWar?.date}
-              onSaveWarDetails={handleSaveWarDetails}
-            />
+                <div ref={listTopRef}>
+                  <WarFilters
+                    query={query}
+                    outcome={outcome}
+                    size={size}
+                    availableSizes={availableSizes}
+                    hasActiveFilters={hasActiveFilters}
+                    onQueryChange={handleQueryChange}
+                    onOutcomeChange={handleOutcomeChange}
+                    onSizeChange={handleSizeChange}
+                    onResetFilters={handleResetFilters}
+                  />
+                </div>
+
+                <WarCardList
+                  wars={pageWars}
+                  totalMatched={filteredWars.length}
+                  totalArchive={wars.length}
+                  page={safePage}
+                  totalPages={totalPages}
+                  selectedPeriod={selectedPeriod}
+                  onClearPeriod={() => handleSelectPeriod(null)}
+                  onPageChange={handlePageChange}
+                  onResetFilters={handleResetFilters}
+                  isEditorUnlocked={Boolean(editorConfig?.token)}
+                  latestWarDate={latestWar?.date}
+                  onSaveWarDetails={handleSaveWarDetails}
+                />
+              </>
+            )}
           </>
         )}
 
-        <footer className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t-2 border-[#25374d] pt-5 text-xs text-slate-400">
-          <span>
-            Las cifras reflejan las tarjetas recopiladas del historial de{' '}
-            <a
-              href="https://domistats.com/alliance_wars/68105?page=1"
-              target="_blank"
-              rel="noreferrer"
-              className="font-semibold text-[#c6f36b] underline-offset-4 hover:underline"
-            >
-              DomiStats
-            </a>
-            .
-          </span>
+        <footer
+          className={`mt-8 flex flex-wrap items-center gap-3 border-t-2 border-[#25374d] pt-5 text-xs text-slate-400 ${
+            view === 'war-room' ? 'justify-end' : 'justify-between'
+          }`}
+        >
+          {view === 'history' && (
+            <span>
+              Las cifras reflejan las tarjetas recopiladas del historial de{' '}
+              <a
+                href="https://domistats.com/alliance_wars/68105?page=1"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-[#c6f36b] underline-offset-4 hover:underline"
+              >
+                DomiStats
+              </a>
+              .
+            </span>
+          )}
           <div className="flex flex-wrap items-center gap-3">
-            {updatedAt && (
+            {view === 'war-room' && warPlan.updated_at && (
+              <span className="font-mono text-[11px] text-slate-400 tabular-nums">
+                Plan guardado: {warPlan.updated_at}
+              </span>
+            )}
+            {view === 'history' && updatedAt && (
               <span className="font-mono text-[11px] text-slate-400 tabular-nums">
                 Última sincronización: {updatedAt}
               </span>
@@ -395,7 +545,7 @@ export default function App() {
             <button
               type="button"
               onClick={() => setIsEditorModalOpen(true)}
-              title="Configurar acceso para editar guerras nuevas"
+              title="Configurar acceso de edición con GitHub Token"
               className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[11px] transition ${
                 editorConfig?.token
                   ? 'border border-[#c6f36b]/40 bg-[#c6f36b]/10 font-semibold text-[#c6f36b] hover:bg-[#c6f36b]/20'
