@@ -56,6 +56,7 @@ export function WarRoomPage({
   const [isShareSavePromptOpen, setIsShareSavePromptOpen] = useState<boolean>(false);
   const [missingBasesWarning, setMissingBasesWarning] = useState<number[] | null>(null);
   const [pendingShareAfterSave, setPendingShareAfterSave] = useState<boolean>(false);
+  const [pendingWarSizeChange, setPendingWarSizeChange] = useState<WarPlanSize | null>(null);
   const [isDefenseModalOpen, setIsDefenseModalOpen] = useState<boolean>(false);
   const [isRosterOpen, setIsRosterOpen] = useState<boolean>(false);
   const [newPlayerName, setNewPlayerName] = useState<string>('');
@@ -101,10 +102,29 @@ export function WarRoomPage({
   );
 
   const handleSizeChange = (nextSize: WarPlanSize) => {
+    if (nextSize === plan.warSize) return;
+    if (assignedCount > 0) {
+      setPendingWarSizeChange(nextSize);
+      return;
+    }
     onUpdatePlan((prev) => ({
       ...prev,
       warSize: nextSize,
     }));
+  };
+
+  const handleConfirmWarSizeChange = () => {
+    if (!pendingWarSizeChange) return;
+    const nextSize = pendingWarSizeChange;
+    setPendingWarSizeChange(null);
+    onUpdatePlan((prev) => ({
+      ...prev,
+      warSize: nextSize,
+    }));
+  };
+
+  const handleCancelWarSizeChange = () => {
+    setPendingWarSizeChange(null);
   };
 
   const handleSortByName = () => {
@@ -567,7 +587,7 @@ export function WarRoomPage({
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1f3045]">
+              <tbody>
                 {displayedPlayers.length === 0 ? (
                   <tr>
                     <td
@@ -585,7 +605,7 @@ export function WarRoomPage({
                     return (
                       <tr
                         key={player.id}
-                        className="transition hover:bg-[#132236]/75"
+                        className="border-b border-[#1f3045] last:border-b-0 transition-[background-color] duration-150 hover:bg-[#132236]/75"
                       >
                         <td className="px-2 py-2 sm:px-4">
                           {isEditorUnlocked ? (
@@ -595,12 +615,12 @@ export function WarRoomPage({
                                 setIsDefenseModalOpen(false);
                                 setEditingPlayerId(player.id);
                               }}
-                              className="mt-0 -ml-[3px] w-full rounded-lg py-0 pl-[8px] pr-2 text-left font-display text-[14px] font-extrabold tracking-tight text-[#f7aa37] transition hover:bg-[#182a42] hover:ring-1 hover:ring-[#c6f36b]/60 active:scale-[0.99] break-words"
+                              className="mt-0 -ml-[3px] w-full rounded-lg py-0 pl-[8px] pr-2 text-left font-display text-[16px] font-bold tracking-tight text-[#ffffff] transition hover:bg-[#182a42] hover:ring-1 hover:ring-[#c6f36b]/60 active:scale-[0.99] break-words"
                             >
                               {player.name}
                             </button>
                           ) : (
-                            <span className="mt-0 -ml-[3px] block py-0 pl-[8px] pr-2 font-display text-[14px] font-extrabold tracking-tight text-[#f7aa37] break-words">
+                            <span className="mt-0 -ml-[3px] block py-0 pl-[8px] pr-2 font-display text-[16px] font-bold tracking-tight text-[#ffffff] break-words">
                               {player.name}
                             </span>
                           )}
@@ -608,7 +628,7 @@ export function WarRoomPage({
 
                         <td className="px-1 py-2 text-center sm:px-3">
                           <span
-                            className={`inline-block font-mono text-[11px] font-semibold ${lineColorClass}`}
+                            className={`inline-block font-mono text-[13px] font-semibold ${lineColorClass}`}
                           >
                             {player.line}
                           </span>
@@ -617,7 +637,7 @@ export function WarRoomPage({
                         <td className="px-2 py-2 text-center sm:px-4">
                           <div className="relative flex items-center justify-center">
                             <span
-                              className={`block w-full text-center font-mono text-[11px] font-semibold tabular-nums break-words ${
+                              className={`block w-full text-center font-mono text-[13px] font-semibold tabular-nums break-words ${
                                 isEditorUnlocked && hasObjective ? 'px-6' : 'px-1'
                               } ${hasObjective ? 'text-[#ecfccb]' : 'text-slate-600'}`}
                             >
@@ -981,6 +1001,75 @@ export function WarRoomPage({
                       ? 'Ignorar, guardar y compartir'
                       : 'Ignorar y guardar'}
                 </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {pendingWarSizeChange && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="war-size-change-warning-title"
+          onClick={handleCancelWarSizeChange}
+        >
+          <div
+            className="w-full max-w-md overflow-hidden rounded-2xl border-2 border-[#3b5573] bg-[#0d1726] shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-3 border-b border-[#25374d] px-5 py-4">
+              <div className="flex items-center gap-2.5">
+                <AlertTriangle className="h-5 w-5 shrink-0 text-[#f7aa37]" />
+                <h2
+                  id="war-size-change-warning-title"
+                  className="font-display text-lg font-extrabold uppercase tracking-tight text-white"
+                >
+                  Cambiar tamaño de guerra
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={handleCancelWarSizeChange}
+                aria-label="Cerrar advertencia"
+                className="rounded-lg p-1 text-slate-400 transition hover:bg-[#16253b] hover:text-white"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="space-y-3 px-5 py-4">
+              <p className="text-sm text-slate-300">
+                Ya realizaste{' '}
+                <strong className="text-white">
+                  {assignedCount} {assignedCount === 1 ? 'asignación' : 'asignaciones'}
+                </strong>{' '}
+                en el tamaño <strong className="text-white">{plan.warSize}</strong>.
+              </p>
+              <p className="text-sm text-slate-300">
+                ¿Deseas cambiar el tamaño a{' '}
+                <strong className="text-[#c6f36b]">{pendingWarSizeChange}</strong>{' '}
+                y conservar las asignaciones previas, o cancelar para seguir editando en{' '}
+                <strong className="text-white">{plan.warSize}</strong>?
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-end gap-2.5 border-t border-[#25374d] bg-[#0b1320] px-5 py-3.5">
+              <button
+                type="button"
+                onClick={handleCancelWarSizeChange}
+                className="rounded-lg border-2 border-[#3b5573] bg-[#101c2d] px-3.5 py-1.5 text-xs font-semibold text-slate-200 transition hover:border-slate-400 hover:text-white"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmWarSizeChange}
+                className="inline-flex items-center gap-1.5 rounded-lg border-2 border-[#c6f36b] bg-[#c6f36b] px-4 py-1.5 text-xs font-bold text-[#111c08] transition hover:bg-[#d9f99d]"
+              >
+                <Check className="h-3.5 w-3.5" />
+                <span>Cambiar y conservar</span>
               </button>
             </div>
           </div>
